@@ -828,5 +828,4 @@ Regenerate them with `python docs/capture_screenshots.py` while both servers are
 ## 20. License
 
 **No license has been selected yet.** Until the team chooses one (for example MIT), all rights are reserved by the authors. Third-party libraries and the MiniLM model are used under their own licenses (the model is Apache-2.0).
-#   n l p _ c e c  
- 
+#
