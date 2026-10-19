@@ -1,0 +1,113 @@
+{
+  "note": "post-freeze comparison on the v3 final set",
+  "systems": {
+    "v2 engine (checks off)": {
+      "n": 48,
+      "mae": 0.6875,
+      "rmse": 1.1501811451535218,
+      "normalised_mae": 0.18576388888888887,
+      "exact_agreement": 0.5208333333333334,
+      "within_0_5": 0.6041666666666666,
+      "within_1_0": 0.7916666666666666,
+      "mean_signed_error": 0.20833333333333334,
+      "pearson": 0.6865442172655862,
+      "spearman": 0.6342430543331566
+    },
+    "v3 engine (frozen)": {
+      "n": 48,
+      "mae": 0.59375,
+      "rmse": 0.9381941874331419,
+      "normalised_mae": 0.16059027777777776,
+      "exact_agreement": 0.5,
+      "within_0_5": 0.6041666666666666,
+      "within_1_0": 0.8541666666666666,
+      "mean_signed_error": 0.07291666666666667,
+      "pearson": 0.7900062647901636,
+      "spearman": 0.7466635490061355
+    },
+    "v3 TF-IDF fallback": {
+      "n": 48,
+      "mae": 0.7083333333333334,
+      "rmse": 1.050793351076541,
+      "normalised_mae": 0.19357638888888887,
+      "exact_agreement": 0.4583333333333333,
+      "within_0_5": 0.5833333333333334,
+      "within_1_0": 0.6875,
+      "mean_signed_error": 0.2708333333333333,
+      "pearson": 0.7462952434978705,
+      "spearman": 0.6466674505818689
+    }
+  },
+  "mae_by_type": {
+    "abbreviations": {
+      "n": 3,
+      "v2_mae": 1.1666666666666667,
+      "v3_mae": 1.1666666666666667
+    },
+    "empty": {
+      "n": 1,
+      "v2_mae": 0.0,
+      "v3_mae": 0.0
+    },
+    "irrelevant_long": {
+      "n": 5,
+      "v2_mae": 0.0,
+      "v3_mae": 0.0
+    },
+    "keyword_list": {
+      "n": 2,
+      "v2_mae": 0.5,
+      "v3_mae": 0.5
+    },
+    "negated": {
+      "n": 5,
+      "v2_mae": 1.4,
+      "v3_mae": 0.8
+    },
+    "paraphrase": {
+      "n": 6,
+      "v2_mae": 0.75,
+      "v3_mae": 0.9166666666666666
+    },
+    "partial": {
+      "n": 2,
+      "v2_mae": 0.75,
+      "v3_mae": 0.75
+    },
+    "repeated": {
+      "n": 1,
+      "v2_mae": 0.0,
+      "v3_mae": 0.0
+    },
+    "short_correct_definition": {
+      "n": 6,
+      "v2_mae": 0.25,
+      "v3_mae": 0.25
+    },
+    "single_concept": {
+      "n": 1,
+      "v2_mae": 0.0,
+      "v3_mae": 0.0
+    },
+    "spelling": {
+      "n": 4,
+      "v2_mae": 0.375,
+      "v3_mae": 0.375
+    },
+    "swapped": {
+      "n": 3,
+      "v2_mae": 2.6666666666666665,
+      "v3_mae": 1.8333333333333333
+    },
+    "vague_short": {
+      "n": 4,
+      "v2_mae": 0.0,
+      "v3_mae": 0.0
+    },
+    "wrong_with_keywords": {
+      "n": 5,
+      "v2_mae": 0.9,
+      "v3_mae": 0.9
+    }
+  }
+}

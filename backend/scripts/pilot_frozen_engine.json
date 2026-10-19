@@ -1,0 +1,54 @@
+{
+  "_comment": "Identity of the scoring engine frozen for the classroom pilot (identity recorded 2026-10-17 from evaluation.real_study.frozen_engine(); per-file hashes of the exact bytes added 2026-10-17 in the security remediation sprint, identity unchanged). pilot_preflight.py fails if any listed file differs, if a file matching scoring_relevant_globs is not listed, or if this manifest is missing, malformed or incomplete. This file is NOT tamper-proof (unsigned, stored beside the code): the supervisor keeps its SHA-256 independently and passes it to the preflight with --manifest-sha256. Not covered: the model weights (no revision pinned) and teachers' per-question threshold overrides (recorded per evaluation in config_fingerprint). Sprint 3 (2026-10-17): added model_artifacts (cached snapshot revision + exact-byte SHA-256 of every model, tokenizer and config file, read from disk without loading the model) and runtime (Python and scoring-library versions from package metadata); identity and per-file source hashes unchanged.",
+  "engine_version": "4.1.0",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "backend": "embedding",
+  "config_fingerprint": "0c55a0ed63bf58c0",
+  "nlp_source_sha256": "dd57c14d0a9bb11a3fd2ef9c2a1095a0ecba6be861233dcc2b6f9512a0b6269d",
+  "scoring_relevant_globs": [
+    "app/nlp/*.py",
+    "app/services/evaluation_service.py"
+  ],
+  "files": {
+    "app/nlp/__init__.py": "bde65f7df79cc6879aa9579389aa20fe26467b58956a3145f194123ea7f0e643",
+    "app/nlp/alignment.py": "42a0f4d7dbefaf3af4dafc2f03ee56209b8abbbb6799505a62a7707bbd818cb2",
+    "app/nlp/config.py": "e647253a4240b0705999c399b5f9a93f3690ab6d9a147b93ef5b47eddae48cb1",
+    "app/nlp/correctness.py": "aea14a8552d4cfeeb43d8154b1232ac74eb73e378f1ca633ebef2b5cb36a1a1b",
+    "app/nlp/feedback.py": "c4c42fe3b022c6980d39e15579c277a1d5d43adb0c94b9c4c9d70feeb85d9810",
+    "app/nlp/metrics.py": "6b5899e62a17a4d3bb9b6ad91ae7584e2ea671e452f572d7f308c8d98db0feaf",
+    "app/nlp/preprocessing.py": "d24334110b6453e7a9bfd1b6edc004f42458b221dcab5bab380e5db741d03b12",
+    "app/nlp/rubric.py": "3d301e2a79950d875a01e17a19e00cd9f00c4d3a5e18ff548cd5d4809e7cdc6a",
+    "app/nlp/scorer.py": "9980169eb5c5b11fd46795784101d1e7a5ea80ed04c6cfa008d457bc82fc6a0f",
+    "app/nlp/similarity.py": "f7d6f0b646c2a8c2018188e2175ad5785fe7e10476a1cf9438b41279807ade64",
+    "app/services/evaluation_service.py": "36cdf7b2919b121ee612ba47f5456384a695ee413abe0f3175f535b93de7a18f"
+  },
+  "model_artifacts": {
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "files": {
+      "1_Pooling/config.json": "4be450dde3b0273bb9787637cfbd28fe04a7ba6ab9d36ac48e92b11e350ffc23",
+      "config.json": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+      "config_sentence_transformers.json": "061ca9d39661d6c6d6de5ba27f79a1cd5770ea247f8d46412a68a498dc5ac9f3",
+      "model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+      "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "README.md": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+      "sentence_bert_config.json": "fc1993fde0a95c24ec6c022539d41cf6e2f7c9721e5415d6fb6897472a9cd4b7",
+      "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+      "tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+      "tokenizer_config.json": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    }
+  },
+  "runtime": {
+    "python": "3.12.4",
+    "sentence-transformers": "3.4.1",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2",
+    "huggingface-hub": "0.36.2",
+    "torch": "2.9.1",
+    "scikit-learn": "1.6.1",
+    "numpy": "2.4.2",
+    "scipy": "1.15.1",
+    "nltk": "3.9.1",
+    "safetensors": "0.8.0"
+  }
+}

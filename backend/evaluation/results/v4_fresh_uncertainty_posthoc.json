@@ -1,0 +1,81 @@
+{
+  "note": "Post-hoc analysis of archived v4.0 fresh-set results (audit). No engine run, no new data. Per-answer predictions of the v3 configuration and the keyword baseline were not archived, so a paired confidence interval for v4 - v3 cannot be computed without re-running the spent set; the difference is reported as total absolute error instead.",
+  "engine_version": "4.0.0",
+  "v4_cluster_bootstrap": {
+    "mae": {
+      "estimate": 0.546875,
+      "ci": [
+        0.40625,
+        0.71875
+      ]
+    },
+    "normalised_mae": {
+      "estimate": 0.14778645833333331,
+      "ci": [
+        0.109375,
+        0.19140625
+      ]
+    },
+    "within_1": {
+      "estimate": 0.875,
+      "ci": [
+        0.8125,
+        0.9375
+      ]
+    },
+    "severe_ge_2": {
+      "estimate": 0.0625,
+      "ci": [
+        0.015625,
+        0.125
+      ]
+    },
+    "n": 64,
+    "clusters": 8,
+    "resampling": "question clusters",
+    "n_boot": 10000,
+    "level": 0.95
+  },
+  "v4_answer_bootstrap": {
+    "mae": {
+      "estimate": 0.546875,
+      "ci": [
+        0.375,
+        0.7421875
+      ]
+    },
+    "normalised_mae": {
+      "estimate": 0.14778645833333331,
+      "ci": [
+        0.10091145833333333,
+        0.19921875
+      ]
+    },
+    "within_1": {
+      "estimate": 0.875,
+      "ci": [
+        0.796875,
+        0.953125
+      ]
+    },
+    "severe_ge_2": {
+      "estimate": 0.0625,
+      "ci": [
+        0.015625,
+        0.125
+      ]
+    },
+    "n": 64,
+    "clusters": 8,
+    "resampling": "answers",
+    "n_boot": 10000,
+    "level": 0.95
+  },
+  "total_absolute_error_marks": {
+    "v4.0 engine": 35.0,
+    "v3 configuration": 36.0,
+    "keyword baseline": 61.5,
+    "TF-IDF fallback": 55.0
+  },
+  "n_answers": 64
+}

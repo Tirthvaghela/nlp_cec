@@ -1,0 +1,25 @@
+{
+  "_comment": "Pre-registered pilot acceptance criteria (docs/PILOT_ACCEPTANCE_CRITERIA.md). Every value is null ON PURPOSE: the project team / faculty must choose and approve each one BEFORE `freeze`. The tool refuses to freeze while any value is null or the approval is not documented (approved_by, approved_on, approval_evidence), and refuses to score if this file changes after freezing. Rules: ci_upper_below_zero = the engine's paired MAE difference must have a 95% CI entirely below 0 (clearly better); point_estimate_not_worse = the engine's MAE must not exceed the other system's; report_only = reported without pass/fail.",
+  "approved_by": "<roles/names of the approving project team members or faculty>",
+  "approved_on": "<YYYY-MM-DD>",
+  "approval_evidence": "<reference to the approval record: signed minutes, e-mail id or document number - kept by the supervisor>",
+  "criteria": {
+    "min_answers": null,
+    "min_questions": null,
+    "min_answers_per_question": null,
+    "min_teacher_concept_kappa": null,
+    "min_teacher_within_1": null,
+    "max_normalised_mae_ci_upper": null,
+    "min_within_1_ci_lower": null,
+    "max_mae_ratio_to_teacher_mae": null,
+    "max_severe_error_share": null,
+    "max_severe_error_share_per_question_type": null,
+    "keyword_baseline_rule": null,
+    "v3_rule": null,
+    "require_flagged_mae_above_unflagged": null
+  },
+  "attestations": {
+    "pilot_deployment_requires_review_before_publish": false,
+    "students_informed_marks_are_teacher_decided": false
+  }
+}

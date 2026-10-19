@@ -1,0 +1,1033 @@
+{
+  "name": "AnswerWise FRESH held-out set for v4",
+  "synthetic": true,
+  "created": "2026-10-16, before any v4 code change",
+  "design": "8 new questions not used anywhere before. Every question uses the same fixed template of 8 answer types (paraphrase, short_correct_definition, dense_correct, partial, vague_short, wrong_with_keywords, swapped-or-negated, rotating keyword_list/spelling/abbreviations/irrelevant_long), so examples were not selected for outcome. Answers written and hand-marked from the rubric by the engine developer - one marker, no independent annotation. Run only with `python -m evaluation.evaluate --v4-fresh` after v4 is frozen.",
+  "label_scheme": {
+    "M": 1.0,
+    "P": 0.5,
+    "X": 0.0
+  },
+  "questions": [
+    {
+      "id": "R1",
+      "split": "v4_fresh",
+      "text": "What is the difference between precision and recall?",
+      "max_marks": 4,
+      "reference_answer": "Precision is the fraction of predicted positives that are actually positive, TP / (TP + FP). Recall is the fraction of actual positives that the model correctly finds, TP / (TP + FN). There is a trade-off: raising the decision threshold usually increases precision but lowers recall. Precision matters when false positives are costly, such as spam filtering, while recall matters when false negatives are costly, such as disease screening.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Precision",
+          "description": "Precision is the fraction of predicted positives that are actually positive, TP / (TP + FP)",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Recall",
+          "description": "Recall is the fraction of actual positives that the model correctly finds, TP / (TP + FN)",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Trade-off",
+          "description": "There is a trade-off: raising the decision threshold usually increases precision but lowers recall",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "When each matters",
+          "description": "Precision matters when false positives are costly, such as spam filtering, while recall matters when false negatives are costly, such as disease screening",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R1-a1",
+          "type": "paraphrase",
+          "text": "Precision asks: of everything the model labelled positive, how much really was positive? It is TP divided by TP plus FP. Recall asks the opposite question: of all the truly positive cases, how many did the model catch, which is TP over TP plus FN. You usually cannot maximise both, because making the classifier stricter raises precision while it misses more positives and recall drops. If a wrong alarm is expensive, as in a spam filter that hides real mail, precision is preferred; if missing a case is dangerous, as in cancer screening, recall is preferred.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R1-a2",
+          "type": "short_correct_definition",
+          "text": "Precision is the share of predicted positives that are truly positive.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R1-a3",
+          "type": "dense_correct",
+          "text": "Precision is TP/(TP+FP) and recall is TP/(TP+FN), so precision penalises false positives while recall penalises false negatives.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "X",
+            "c4": "P"
+          },
+          "human_score": 2.5
+        },
+        {
+          "id": "R1-a4",
+          "type": "partial",
+          "text": "Precision measures how many of the predicted positives are correct. Recall is also important.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R1-a5",
+          "type": "vague_short",
+          "text": "Precision and recall measure how good a model is.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R1-a6",
+          "type": "wrong_with_keywords",
+          "text": "Precision and recall are both calculated from true negatives only, and a higher threshold always increases both of them.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R1-a7",
+          "type": "swapped",
+          "text": "Recall is TP / (TP + FP), the share of predicted positives that are correct, while precision is TP / (TP + FN), the share of real positives that are found.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R1-a8",
+          "type": "keyword_list",
+          "text": "precision recall true positives false positives false negatives threshold trade-off spam screening",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "R2",
+      "split": "v4_fresh",
+      "text": "Explain how a hash table stores data and handles collisions.",
+      "max_marks": 4,
+      "reference_answer": "A hash table stores key-value pairs in an array of buckets. A hash function converts the key into an index of the array. A collision happens when two keys map to the same index. Collisions are handled by chaining, where each bucket holds a list, or by open addressing, which probes for another free slot.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Key-value pairs in buckets",
+          "description": "A hash table stores key-value pairs in an array of buckets",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Hash function gives index",
+          "description": "A hash function converts the key into an index of the array",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Collision",
+          "description": "A collision happens when two keys map to the same index",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Collision handling",
+          "description": "Collisions are handled by chaining, a list in each bucket, or open addressing, probing for another free slot",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R2-a1",
+          "type": "paraphrase",
+          "text": "A hash table keeps key-value pairs in an underlying array whose slots are called buckets. To decide where a pair goes, a hash function turns the key into a number that is used as the array position. Sometimes two different keys produce the same position, which is called a collision. This is solved either by keeping a small linked list in each bucket (separate chaining) or by searching for the next empty slot, for example with linear probing.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R2-a2",
+          "type": "short_correct_definition",
+          "text": "A hash function turns a key into an array index.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R2-a3",
+          "type": "dense_correct",
+          "text": "Keys are hashed to array indices, and when two keys collide the entries are chained in a list at that index.",
+          "labels": {
+            "c1": "P",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 3.5
+        },
+        {
+          "id": "R2-a4",
+          "type": "partial",
+          "text": "A hash table uses a hash function to store data quickly. Collisions can happen.",
+          "labels": {
+            "c1": "P",
+            "c2": "P",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R2-a5",
+          "type": "vague_short",
+          "text": "Hash tables are fast data structures.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R2-a6",
+          "type": "wrong_with_keywords",
+          "text": "A hash table stores keys in sorted order in a tree, and a collision is when the table runs out of memory, which is fixed by deleting old keys.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R2-a7",
+          "type": "negated",
+          "text": "A hash function does not convert keys into indexes; keys are simply stored one after another, and collisions never happen.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R2-a8",
+          "type": "spelling",
+          "text": "A hash tabel stores key-value pares in an aray of bukets. The hash funtion converts the key into an indx. When two keys get the same indx it is a colision, which is handeled by chaning.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        }
+      ]
+    },
+    {
+      "id": "R3",
+      "split": "v4_fresh",
+      "text": "Differentiate between mitosis and meiosis.",
+      "max_marks": 4,
+      "reference_answer": "Mitosis produces two genetically identical daughter cells and is used for growth and repair of body cells. Meiosis produces four genetically different daughter cells with half the chromosome number (haploid). Meiosis produces gametes (sex cells) for sexual reproduction.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Mitosis: two identical cells",
+          "description": "Mitosis produces two genetically identical daughter cells",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Mitosis: growth and repair",
+          "description": "Mitosis is used for growth and repair of body cells",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Meiosis: four haploid, varied cells",
+          "description": "Meiosis produces four genetically different daughter cells with half the chromosome number (haploid)",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Meiosis: gametes",
+          "description": "Meiosis produces gametes (sex cells) for sexual reproduction",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R3-a1",
+          "type": "paraphrase",
+          "text": "In mitosis a cell divides once and gives two daughter cells that are exact genetic copies of the parent; the body uses it to grow and to replace damaged cells. Meiosis involves two divisions and ends with four cells, each carrying only half the chromosomes and a different mix of genes because of crossing over. These haploid cells become eggs and sperm for sexual reproduction.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R3-a2",
+          "type": "short_correct_definition",
+          "text": "Mitosis makes two identical cells, while meiosis makes four different cells with half the chromosomes.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 2.0
+        },
+        {
+          "id": "R3-a3",
+          "type": "dense_correct",
+          "text": "Mitosis gives two identical diploid cells for growth and repair, whereas meiosis gives four varied haploid gametes for sexual reproduction.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R3-a4",
+          "type": "partial",
+          "text": "Mitosis is cell division that makes two cells. Meiosis is used to make sex cells.",
+          "labels": {
+            "c1": "P",
+            "c2": "X",
+            "c3": "X",
+            "c4": "M"
+          },
+          "human_score": 1.5
+        },
+        {
+          "id": "R3-a5",
+          "type": "vague_short",
+          "text": "Mitosis and meiosis are types of cell division.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R3-a6",
+          "type": "wrong_with_keywords",
+          "text": "In mitosis and meiosis the chromosome number always doubles, and both produce gametes for growth.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R3-a7",
+          "type": "swapped",
+          "text": "Meiosis produces two identical cells for growth and repair, while mitosis produces four haploid cells that become sperm and eggs.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R3-a8",
+          "type": "abbreviations",
+          "text": "Mitosis -> 2 identical diploid (2n) cells, for growth & repair. Meiosis -> 4 genetically diff. haploid (n) cells = gametes for sexual repro.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        }
+      ]
+    },
+    {
+      "id": "R4",
+      "split": "v4_fresh",
+      "text": "Explain the greenhouse effect.",
+      "max_marks": 3,
+      "reference_answer": "The Sun's short-wave radiation passes through the atmosphere and warms the Earth's surface. The Earth re-emits energy as infrared (heat) radiation, which greenhouse gases such as carbon dioxide, methane and water vapour absorb and re-radiate. This traps heat and keeps the planet warmer; extra greenhouse gases from human activity strengthen the effect and cause global warming.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Sunlight warms the surface",
+          "description": "The Sun's short-wave radiation passes through the atmosphere and warms the Earth's surface",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Gases absorb infrared",
+          "description": "The Earth re-emits energy as infrared (heat) radiation, which greenhouse gases such as carbon dioxide, methane and water vapour absorb and re-radiate",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Heat trapped, global warming",
+          "description": "This traps heat and keeps the planet warmer; extra greenhouse gases from human activity strengthen the effect and cause global warming",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R4-a1",
+          "type": "paraphrase",
+          "text": "Sunlight gets through the air and heats the ground. The warm ground then gives off heat as infrared radiation, but gases like CO2, methane and water vapour soak up much of this heat and send it back down. That trapped heat keeps Earth warm, and because burning fossil fuels adds more of these gases, the planet is heating up further.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "R4-a2",
+          "type": "short_correct_definition",
+          "text": "The greenhouse effect is the trapping of the Earth's heat by gases such as carbon dioxide in the atmosphere.",
+          "labels": {
+            "c1": "X",
+            "c2": "P",
+            "c3": "P"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R4-a3",
+          "type": "dense_correct",
+          "text": "Greenhouse gases like CO2 absorb the infrared heat that the Sun-warmed surface radiates and re-emit it, trapping warmth, so adding more CO2 causes global warming.",
+          "labels": {
+            "c1": "P",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 2.5
+        },
+        {
+          "id": "R4-a4",
+          "type": "partial",
+          "text": "Gases in the atmosphere trap heat, which keeps the Earth warm.",
+          "labels": {
+            "c1": "X",
+            "c2": "P",
+            "c3": "P"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R4-a5",
+          "type": "vague_short",
+          "text": "The greenhouse effect is about climate.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R4-a6",
+          "type": "wrong_with_keywords",
+          "text": "The greenhouse effect happens because carbon dioxide reflects sunlight back into space, which cools the Earth's surface.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R4-a7",
+          "type": "negated",
+          "text": "Greenhouse gases do not absorb infrared radiation, so they have no effect on the Earth's temperature.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R4-a8",
+          "type": "irrelevant_long",
+          "text": "A greenhouse is a glass building where farmers grow vegetables and flowers. It protects plants from wind, rain and insects. Many gardeners use small greenhouses to grow tomatoes early in the season. Greenhouses need regular watering and good ventilation to stay healthy.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "R5",
+      "split": "v4_fresh",
+      "text": "What is gradient descent?",
+      "max_marks": 4,
+      "reference_answer": "Gradient descent is an optimisation algorithm that minimises a loss (cost) function. It computes the gradient of the loss with respect to the parameters. The parameters are updated in the opposite direction of the gradient: w = w - learning rate x gradient. The learning rate controls the step size: if it is too large the algorithm can overshoot or diverge, and if it is too small convergence is slow.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Minimises a loss",
+          "description": "Gradient descent is an optimisation algorithm that minimises a loss (cost) function",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Computes the gradient",
+          "description": "It computes the gradient of the loss with respect to the parameters",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Update against the gradient",
+          "description": "Parameters are updated in the opposite direction of the gradient: w = w - learning rate x gradient",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Learning rate",
+          "description": "The learning rate controls the step size: too large can overshoot or diverge, too small makes convergence slow",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R5-a1",
+          "type": "paraphrase",
+          "text": "Gradient descent is a way of training a model by making its error, the loss, as small as possible. At each step it works out the slope of the loss with respect to every weight. It then moves each weight a little in the downhill direction, subtracting the learning rate times the slope. The size of that step matters: a big learning rate can jump past the minimum or even blow up, while a tiny one takes forever to converge.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R5-a2",
+          "type": "short_correct_definition",
+          "text": "Gradient descent is an algorithm that minimises a loss function.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R5-a3",
+          "type": "dense_correct",
+          "text": "Gradient descent minimises the loss by repeatedly updating weights as w = w - lr * dL/dw, where a too-large lr overshoots and a too-small lr converges slowly.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R5-a4",
+          "type": "partial",
+          "text": "Gradient descent finds the minimum of a function by taking small steps.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R5-a5",
+          "type": "vague_short",
+          "text": "Gradient descent is used in machine learning.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R5-a6",
+          "type": "wrong_with_keywords",
+          "text": "Gradient descent maximises the loss function by moving the parameters in the same direction as the gradient, and the learning rate has no effect on convergence.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R5-a7",
+          "type": "negated",
+          "text": "Gradient descent does not use the gradient; it updates the weights randomly.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R5-a8",
+          "type": "keyword_list",
+          "text": "gradient descent loss function minimise learning rate step size parameters update slope",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "R6",
+      "split": "v4_fresh",
+      "text": "Differentiate between a compiler and an interpreter.",
+      "max_marks": 4,
+      "reference_answer": "A compiler translates the whole source program into machine code before execution. Compiled programs usually run faster, and errors are reported after the whole program is compiled. An interpreter translates and executes the program line by line at run time. Interpreted programs run slower but stop at the first error, which makes debugging easier; C is typically compiled and Python interpreted.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Compiler translates whole program",
+          "description": "A compiler translates the whole source program into machine code before execution",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Compiled: fast, errors at the end",
+          "description": "Compiled programs usually run faster, and errors are reported after the whole program is compiled",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Interpreter: line by line",
+          "description": "An interpreter translates and executes the program line by line at run time",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Interpreted: slower, easier debugging",
+          "description": "Interpreted programs run slower but stop at the first error, which makes debugging easier; C is compiled and Python interpreted",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R6-a1",
+          "type": "paraphrase",
+          "text": "A compiler reads the entire program first and converts it into a machine-code executable, which can then be run many times; such programs are generally fast, and the compiler lists all the errors it found at the end. An interpreter, by contrast, takes one statement at a time, translates it and runs it immediately. That makes execution slower, but it halts as soon as it reaches a faulty line, so finding bugs is simpler. C is a typical compiled language and Python a typical interpreted one.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R6-a2",
+          "type": "short_correct_definition",
+          "text": "A compiler translates the whole program at once, while an interpreter translates it line by line.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 2.0
+        },
+        {
+          "id": "R6-a3",
+          "type": "dense_correct",
+          "text": "Compilers convert the entire source to machine code ahead of time and run faster, while interpreters execute line by line, run slower and stop at the first error.",
+          "labels": {
+            "c1": "M",
+            "c2": "P",
+            "c3": "M",
+            "c4": "P"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "R6-a4",
+          "type": "partial",
+          "text": "A compiler converts code into machine code. An interpreter also converts code.",
+          "labels": {
+            "c1": "P",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.5
+        },
+        {
+          "id": "R6-a5",
+          "type": "vague_short",
+          "text": "Both compilers and interpreters run programs.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R6-a6",
+          "type": "wrong_with_keywords",
+          "text": "A compiler is a hardware device that stores programs in memory, and an interpreter is a person who translates the code into English.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R6-a7",
+          "type": "swapped",
+          "text": "An interpreter translates the whole program into machine code before running it, and a compiler executes the code line by line at run time.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R6-a8",
+          "type": "spelling",
+          "text": "A compiller translates the hole program into machine code befor execution, so it runs faster. An interpretter executes the program line by line at run time and stops at the frist error.",
+          "labels": {
+            "c1": "M",
+            "c2": "P",
+            "c3": "M",
+            "c4": "P"
+          },
+          "human_score": 3.0
+        }
+      ]
+    },
+    {
+      "id": "R7",
+      "split": "v4_fresh",
+      "text": "What is sentiment analysis and why is it challenging?",
+      "max_marks": 4,
+      "reference_answer": "Sentiment analysis automatically determines the opinion or emotional polarity of a text, such as positive, negative or neutral. It is used to analyse product reviews, social media posts and customer feedback. Sarcasm and irony are hard because the literal words express the opposite of the intended sentiment. Negation, context and domain-specific words also make it challenging, for example 'not bad' is positive.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Definition",
+          "description": "Sentiment analysis automatically determines the opinion or emotional polarity of a text, such as positive, negative or neutral",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Applications",
+          "description": "It is used to analyse product reviews, social media posts and customer feedback",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Sarcasm",
+          "description": "Sarcasm and irony are hard because the literal words express the opposite of the intended sentiment",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Negation and context",
+          "description": "Negation, context and domain-specific words make it challenging, for example 'not bad' is positive",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R7-a1",
+          "type": "paraphrase",
+          "text": "Sentiment analysis is the task of having a computer decide whether a piece of text expresses a positive, negative or neutral attitude. Businesses run it over product reviews, tweets and support tickets to see how customers feel. It is hard because people are often sarcastic, saying 'great, it broke again' when they are actually unhappy. Negations such as 'not bad' and words whose tone depends on the domain or context also confuse simple systems.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "R7-a2",
+          "type": "short_correct_definition",
+          "text": "Sentiment analysis classifies text as positive, negative or neutral.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R7-a3",
+          "type": "dense_correct",
+          "text": "Sentiment analysis labels reviews and tweets as positive or negative, but sarcasm, negations like 'not bad' and domain-specific words make it hard.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "P",
+            "c4": "M"
+          },
+          "human_score": 3.5
+        },
+        {
+          "id": "R7-a4",
+          "type": "partial",
+          "text": "Sentiment analysis finds out if a review is positive or negative. Sarcasm makes it difficult.",
+          "labels": {
+            "c1": "M",
+            "c2": "P",
+            "c3": "P",
+            "c4": "X"
+          },
+          "human_score": 2.0
+        },
+        {
+          "id": "R7-a5",
+          "type": "vague_short",
+          "text": "Sentiment analysis is about feelings.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R7-a6",
+          "type": "wrong_with_keywords",
+          "text": "Sentiment analysis translates positive reviews into another language, and sarcasm makes it easier because sarcastic words are always positive.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R7-a7",
+          "type": "negated",
+          "text": "Sarcasm and negation do not cause any difficulty for sentiment analysis because the words always mean exactly what they say.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R7-a8",
+          "type": "abbreviations",
+          "text": "SA = classify text as pos/neg/neutral. Used on reviews, tweets, feedback. Hard: sarcasm (literal words differ from intended meaning), negation ('not bad' = pos), domain-specific vocab.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        }
+      ]
+    },
+    {
+      "id": "R8",
+      "split": "v4_fresh",
+      "text": "Explain the concept of inheritance in object-oriented programming.",
+      "max_marks": 3,
+      "reference_answer": "Inheritance lets a child (sub) class acquire the attributes and methods of a parent (super) class. It promotes code reuse and models an 'is-a' relationship, for example a Dog class inheriting from an Animal class. The child class can add new members or override inherited methods to change their behaviour.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Child acquires parent members",
+          "description": "Inheritance lets a child (sub) class acquire the attributes and methods of a parent (super) class",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Reuse and is-a relationship",
+          "description": "It promotes code reuse and models an 'is-a' relationship, for example a Dog class inheriting from an Animal class",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Extend or override",
+          "description": "The child class can add new members or override inherited methods to change their behaviour",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "R8-a1",
+          "type": "paraphrase",
+          "text": "With inheritance, a new class is built on top of an existing one and automatically gets all of its fields and methods. This avoids writing the same code twice and expresses an 'is-a' link, like Car being a kind of Vehicle. The new class is free to add extra features of its own or to redefine an inherited method so that it behaves differently.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "R8-a2",
+          "type": "short_correct_definition",
+          "text": "Inheritance means a child class gets the properties and methods of its parent class.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "R8-a3",
+          "type": "dense_correct",
+          "text": "A subclass inherits its superclass's fields and methods, reusing code, and can override those methods or add new ones.",
+          "labels": {
+            "c1": "M",
+            "c2": "P",
+            "c3": "M"
+          },
+          "human_score": 2.5
+        },
+        {
+          "id": "R8-a4",
+          "type": "partial",
+          "text": "Inheritance is used for code reuse in OOP.",
+          "labels": {
+            "c1": "X",
+            "c2": "P",
+            "c3": "X"
+          },
+          "human_score": 0.5
+        },
+        {
+          "id": "R8-a5",
+          "type": "vague_short",
+          "text": "Inheritance is an OOP concept.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R8-a6",
+          "type": "wrong_with_keywords",
+          "text": "Inheritance means the parent class copies all the methods of the child class, and the child class can never override them.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R8-a7",
+          "type": "negated",
+          "text": "A child class does not receive the attributes or methods of its parent class.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "R8-a8",
+          "type": "irrelevant_long",
+          "text": "In law, inheritance is the property that passes to family members when someone dies. A will usually decides who receives the house, money and land. In many countries inheritance tax must be paid to the government. Families sometimes argue in court about how the inheritance should be divided.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    }
+  ]
+}

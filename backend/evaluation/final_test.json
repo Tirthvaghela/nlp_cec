@@ -1,0 +1,771 @@
+{
+  "name": "AnswerWise FINAL held-out set (v3)",
+  "synthetic": true,
+  "created": "2026-10-16, before any engine v3 change",
+  "description": "SYNTHETIC answers written and hand-marked from the rubric BEFORE engine v3 development started. Not to be used for tuning. Run only with `python -m evaluation.evaluate --final` after the configuration is frozen. Written by the same author who develops the engine - see README limitations.",
+  "label_scheme": {
+    "M": 1.0,
+    "P": 0.5,
+    "X": 0.0
+  },
+  "questions": [
+    {
+      "id": "Q13",
+      "split": "final",
+      "text": "Explain the n-gram language model and the Markov assumption.",
+      "max_marks": 4,
+      "reference_answer": "An n-gram language model estimates the probability of a word given the previous n-1 words. It relies on the Markov assumption: the next word depends only on a limited history of the previous few words rather than on the entire sentence. The probabilities are estimated from counts in a training corpus, for example P(w2|w1) = count(w1 w2) / count(w1). N-grams that never occur in training would get zero probability, so smoothing such as Laplace (add-one) smoothing is needed.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Conditional probability of next word",
+          "description": "An n-gram language model estimates the probability of a word given the previous n-1 words",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Markov assumption",
+          "description": "The Markov assumption says the next word depends only on a limited history of the previous few words rather than the entire sentence",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Estimated from corpus counts",
+          "description": "Probabilities are estimated from counts of word sequences in a training corpus",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Smoothing for unseen n-grams",
+          "description": "Unseen n-grams get zero probability, so smoothing such as Laplace add-one smoothing is needed",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q13-a1",
+          "type": "paraphrase",
+          "text": "An n-gram model predicts each word using only the n-1 words that come right before it. This rests on the Markov assumption: instead of conditioning on the whole history, we assume the next word depends just on a short window of recent words. The conditional probabilities are learned by counting how often word sequences appear in a corpus, e.g. P(cat | the) = count(the cat) / count(the). Because many valid sequences never appear in training, they would get probability zero, so smoothing methods like add-one (Laplace) are applied.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "Q13-a2",
+          "type": "short_correct_definition",
+          "text": "An n-gram model gives the probability of a word based on the previous n-1 words.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "Q13-a3",
+          "type": "vague_short",
+          "text": "N-grams are groups of words used in language models.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q13-a4",
+          "type": "wrong_with_keywords",
+          "text": "In an n-gram model the probability of a word depends on all the words in the entire document, and the Markov assumption says that every word is independent of the previous words.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q13-a5",
+          "type": "negated",
+          "text": "The Markov assumption means the next word does not depend on the previous words at all. Smoothing is not needed because every n-gram appears in the corpus.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q13-a6",
+          "type": "spelling",
+          "text": "A n-gram modle calculates the probabilty of the next word from the previus n-1 words, using the Markov asumption that only recent words matter. The probabilities come from counting word sequnces in a corpus.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "Q13-a7",
+          "type": "keyword_list",
+          "text": "n-gram probability previous words Markov assumption counts corpus smoothing Laplace",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q13-a8",
+          "type": "irrelevant_long",
+          "text": "Language is one of the most important inventions of humanity. Every language has a grammar that defines how sentences are formed. Linguists study the history of languages and how they change over centuries. Many old languages such as Sanskrit and Latin are no longer spoken in daily life. Learning several languages improves memory and helps people understand other cultures.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "split": "final",
+      "text": "What is cosine similarity and why is it used to compare documents?",
+      "max_marks": 3,
+      "reference_answer": "Cosine similarity measures the cosine of the angle between two vectors: their dot product divided by the product of their lengths. It ranges from -1 to 1 (from 0 to 1 for non-negative TF-IDF vectors), and higher values mean the documents are more similar. Because it ignores vector length, documents of different lengths can be compared fairly.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Angle between vectors",
+          "description": "Cosine similarity measures the cosine of the angle between two vectors: their dot product divided by the product of their lengths",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Range and interpretation",
+          "description": "It ranges from -1 to 1, or 0 to 1 for TF-IDF vectors, and higher values mean more similar documents",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Length independence",
+          "description": "It ignores vector length, so documents of different lengths can be compared fairly",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q14-a1",
+          "type": "paraphrase",
+          "text": "To compare two documents we turn them into vectors and look at the angle between them: the dot product divided by the product of the two vector norms. A value close to 1 means the documents point in the same direction and are very similar, while 0 means they share nothing. Since only the direction matters and not the magnitude, a long article and a short note on the same topic can still score high.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "Q14-a2",
+          "type": "short_correct_definition",
+          "text": "Cosine similarity is the dot product of two vectors divided by the product of their magnitudes.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "Q14-a3",
+          "type": "vague_short",
+          "text": "Cosine similarity tells how similar two things are.",
+          "labels": {
+            "c1": "X",
+            "c2": "P",
+            "c3": "X"
+          },
+          "human_score": 0.5
+        },
+        {
+          "id": "Q14-a4",
+          "type": "wrong_with_keywords",
+          "text": "Cosine similarity is the Euclidean distance between two vectors, so longer documents always get a higher cosine similarity than shorter ones.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q14-a5",
+          "type": "negated",
+          "text": "Cosine similarity depends heavily on the length of the documents, so it cannot compare a short and a long document fairly.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q14-a6",
+          "type": "abbreviations",
+          "text": "cos sim = (A.B)/(||A|| ||B||). Range -1..1, for TF-IDF vecs 0..1; higher = more similar. Length-invariant so long & short docs compare fairly.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "Q14-a7",
+          "type": "repeated",
+          "text": "Cosine similarity measures the angle between two vectors. Cosine similarity measures the angle between two vectors. Cosine similarity measures the angle between two vectors.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "Q14-a8",
+          "type": "irrelevant_long",
+          "text": "Trigonometry is a branch of mathematics that studies triangles. The sine, cosine and tangent functions relate the angles of a right triangle to the lengths of its sides. These functions are used in physics, engineering and navigation. Ancient astronomers used trigonometry to calculate the positions of stars and planets.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "split": "final",
+      "text": "Differentiate between supervised and unsupervised learning.",
+      "max_marks": 4,
+      "reference_answer": "Supervised learning trains on labelled data, where each input has a known target output. It is used for classification and regression, for example spam detection or house-price prediction. Unsupervised learning works with unlabelled data and finds hidden structure or patterns on its own. It is used for clustering and dimensionality reduction, for example customer segmentation with k-means or PCA.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Supervised uses labelled data",
+          "description": "Supervised learning trains on labelled data where each input has a known target output",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Supervised tasks",
+          "description": "Supervised learning is used for classification and regression, for example spam detection or price prediction",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Unsupervised uses unlabelled data",
+          "description": "Unsupervised learning works with unlabelled data and finds hidden structure or patterns on its own",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Unsupervised tasks",
+          "description": "Unsupervised learning is used for clustering and dimensionality reduction, for example customer segmentation with k-means",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q15-a1",
+          "type": "paraphrase",
+          "text": "In supervised learning every training example comes with the correct answer, so the model learns a mapping from inputs to known outputs. Typical tasks are classification, like deciding whether an e-mail is spam, and regression, like predicting house prices. Unsupervised learning gets only raw, unlabelled examples and has to discover structure by itself. It is used for grouping similar items, such as segmenting customers with k-means, and for reducing the number of dimensions with PCA.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "Q15-a2",
+          "type": "short_correct_definition",
+          "text": "Supervised learning uses labelled data, while unsupervised learning uses unlabelled data.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "P",
+            "c4": "X"
+          },
+          "human_score": 1.5
+        },
+        {
+          "id": "Q15-a3",
+          "type": "swapped",
+          "text": "Supervised learning uses unlabelled data and discovers groups by itself, for example clustering customers. Unsupervised learning needs labelled examples with the correct answers and is used for spam classification.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q15-a4",
+          "type": "wrong_with_keywords",
+          "text": "Supervised learning means a human supervises the computer while it runs, and unsupervised learning means the program runs overnight without anyone watching. Both use labelled data.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q15-a5",
+          "type": "spelling",
+          "text": "Supervized lerning uses labeled data with known outputs and is used for clasification and regresion. Unsupervized lerning uses unlabeled data to find paterns, for exampel clustring.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "Q15-a6",
+          "type": "single_concept",
+          "text": "K-means clustering and PCA are examples of unsupervised learning methods.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "M"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "Q15-a7",
+          "type": "keyword_list",
+          "text": "supervised labelled unsupervised unlabelled classification regression clustering k-means",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q15-a8",
+          "type": "irrelevant_long",
+          "text": "A good teacher supervises students carefully during exams. Students who study regularly usually perform better than those who study only at the last minute. Schools should also encourage sports and cultural activities. Parents play an important role in motivating children to learn.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "Q16",
+      "split": "final",
+      "text": "Explain the role of the attention mechanism in sequence-to-sequence models.",
+      "max_marks": 4,
+      "reference_answer": "In a basic encoder-decoder model the whole input sentence is compressed into one fixed-length vector, which becomes a bottleneck for long sentences. Attention lets the decoder look at all encoder hidden states at every output step. It computes alignment scores, turns them into attention weights with a softmax and uses the weighted sum of encoder states as a context vector. This greatly improves the translation of long sentences, and the weights show which input words were used for each output word.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Fixed-vector bottleneck",
+          "description": "In a basic encoder-decoder model the whole input is compressed into one fixed-length vector, which becomes a bottleneck for long sentences",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Decoder sees all encoder states",
+          "description": "Attention lets the decoder look at all encoder hidden states at every output step",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Weights and context vector",
+          "description": "It computes attention weights with a softmax over alignment scores and uses the weighted sum as a context vector",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Benefits",
+          "description": "This improves translation of long sentences and the weights show which input words were used, giving an alignment",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q16-a1",
+          "type": "paraphrase",
+          "text": "Without attention, the encoder has to squeeze the entire source sentence into a single fixed-size vector, and quality drops for long inputs. Attention removes this bottleneck: at each decoding step the decoder can consult every hidden state the encoder produced. It scores how relevant each source position is, turns the scores into weights with a softmax, and takes the weighted average as the context for that step. As a result long sentences are translated much better, and plotting the weights shows which source words each output word aligned to.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "Q16-a2",
+          "type": "short_correct_definition",
+          "text": "Attention lets the decoder focus on different parts of the input sentence at each output step.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "Q16-a3",
+          "type": "vague_short",
+          "text": "Attention helps the model pay attention to important things.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q16-a4",
+          "type": "negated",
+          "text": "With attention the decoder still only sees one fixed context vector for the whole sentence, and attention does not help with long sentences.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q16-a5",
+          "type": "partial",
+          "text": "Normal seq2seq models compress the input into one fixed vector, which is a problem for long sentences. Attention solves this.",
+          "labels": {
+            "c1": "M",
+            "c2": "P",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.5
+        },
+        {
+          "id": "Q16-a6",
+          "type": "abbreviations",
+          "text": "Enc-dec w/o attn: whole src -> 1 fixed vec (bottleneck). Attn: dec looks at all enc hidden states each step; softmax over scores -> weights; weighted sum = context vec. Better for long sents + gives alignment.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "Q16-a7",
+          "type": "wrong_with_keywords",
+          "text": "Attention is a technique where the encoder hidden states are deleted after each step and the decoder uses a softmax to randomly choose one input word, which makes training faster.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q16-a8",
+          "type": "irrelevant_long",
+          "text": "Paying attention in class is the key to success. Students should keep their phones away and take notes while the teacher explains. Revision on the same day helps to remember the topic for a long time. Group study can also be useful when preparing for exams.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "Q17",
+      "split": "final",
+      "text": "What is osmosis?",
+      "max_marks": 3,
+      "reference_answer": "Osmosis is the movement of water (solvent) molecules through a semi-permeable membrane, which lets water pass but blocks the solute, from a dilute solution with a low solute concentration to a concentrated solution with a high solute concentration.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Movement of water",
+          "description": "Osmosis is the movement of water (solvent) molecules",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Semi-permeable membrane",
+          "description": "Water moves through a semi-permeable membrane that lets water pass but blocks the solute",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Direction",
+          "description": "Water moves from a dilute solution with low solute concentration to a concentrated solution with high solute concentration",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q17-a1",
+          "type": "short_correct_definition",
+          "text": "Osmosis is the movement of water from a dilute solution to a concentrated solution through a semi-permeable membrane.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "Q17-a2",
+          "type": "paraphrase",
+          "text": "When two solutions are separated by a membrane that only lets water through, water molecules pass from the side with less dissolved substance to the side with more, until the concentrations even out. That process is called osmosis.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "Q17-a3",
+          "type": "swapped",
+          "text": "Osmosis is the movement of water through a semi-permeable membrane from a concentrated solution to a dilute solution.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "X"
+          },
+          "human_score": 2.0
+        },
+        {
+          "id": "Q17-a4",
+          "type": "wrong_with_keywords",
+          "text": "Osmosis is the movement of salt particles through a membrane from high salt concentration to low salt concentration.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q17-a5",
+          "type": "vague_short",
+          "text": "Osmosis is when water moves.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "Q17-a6",
+          "type": "spelling",
+          "text": "Osmosis is the movment of watter molecules through a semi-permiable membrane from a dilute solution to a more concentrated one.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "Q17-a7",
+          "type": "negated",
+          "text": "In osmosis water does not pass through the membrane; only the dissolved particles move.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q17-a8",
+          "type": "irrelevant_long",
+          "text": "Plants need sunlight, water and nutrients to grow. Farmers use fertilisers to increase crop yield. Watering plants in the early morning reduces loss of water by evaporation. Many vegetables can also be grown at home in small pots.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    },
+    {
+      "id": "Q18",
+      "split": "final",
+      "text": "Differentiate between TCP and UDP.",
+      "max_marks": 4,
+      "reference_answer": "TCP is connection-oriented and establishes a connection with a three-way handshake before sending data. It is reliable: it guarantees ordered delivery using acknowledgements and retransmission. UDP is connectionless and does not guarantee delivery or order, so it has lower overhead and is faster. UDP suits real-time applications such as video streaming, online games and DNS, while TCP suits web pages, e-mail and file transfer.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "TCP is connection-oriented",
+          "description": "TCP is connection-oriented and establishes a connection with a three-way handshake before sending data",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "TCP is reliable",
+          "description": "TCP is reliable: it guarantees ordered delivery using acknowledgements and retransmission",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "UDP is connectionless and fast",
+          "description": "UDP is connectionless and does not guarantee delivery or order, so it has lower overhead and is faster",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Typical uses",
+          "description": "UDP suits real-time applications such as video streaming, online games and DNS, while TCP suits web pages, e-mail and file transfer",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q18-a1",
+          "type": "paraphrase",
+          "text": "TCP first sets up a session between the two hosts using a three-way handshake. It then makes sure every segment arrives, in the right order, by numbering segments, waiting for acknowledgements and resending anything that is lost. UDP skips all of this: it just fires off datagrams with no connection and no guarantees, which keeps the header small and the delay low. That is why live video, voice calls and online games use UDP, whereas browsing, e-mail and file downloads rely on TCP.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "Q18-a2",
+          "type": "short_correct_definition",
+          "text": "TCP is reliable and connection-oriented, while UDP is connectionless and faster but unreliable.",
+          "labels": {
+            "c1": "M",
+            "c2": "P",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 2.5
+        },
+        {
+          "id": "Q18-a3",
+          "type": "swapped",
+          "text": "UDP is connection-oriented and uses a three-way handshake to make delivery reliable, while TCP is connectionless and faster, so TCP is used for online games and streaming.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q18-a4",
+          "type": "negated",
+          "text": "TCP does not guarantee that packets arrive or arrive in order, and it does not need a handshake.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        },
+        {
+          "id": "Q18-a5",
+          "type": "abbreviations",
+          "text": "TCP: conn-oriented (3-way handshake), reliable, ordered (ACKs + retransmit). UDP: connectionless, no guarantees, low overhead -> fast. UDP for streaming/gaming/DNS; TCP for HTTP, email, FTP.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4.0
+        },
+        {
+          "id": "Q18-a6",
+          "type": "partial",
+          "text": "UDP is used for video streaming and online games because it is fast.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "P",
+            "c4": "P"
+          },
+          "human_score": 1.0
+        },
+        {
+          "id": "Q18-a7",
+          "type": "spelling",
+          "text": "TCP is conection oriented and uses a three way handshake. It is relaible because it uses acknowledgments and retransmision. UDP is conectionless and faster but packets can be lost.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 3.0
+        },
+        {
+          "id": "Q18-a8",
+          "type": "empty",
+          "text": "",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0
+        }
+      ]
+    }
+  ]
+}

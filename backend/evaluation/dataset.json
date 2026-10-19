@@ -1,0 +1,1855 @@
+{
+  "name": "AnswerWise synthetic descriptive-answer benchmark",
+  "version": "4.0",
+  "synthetic": true,
+  "description": "SYNTHETIC data written for this project. No real student data. Each answer was written to represent a typical answer type (paraphrase, partial, misconception, irrelevant, misspelt, abbreviated, repeated, empty, keyword list). Reference marks were assigned by hand from the rubric, concept by concept (M = fully addressed, P = partly addressed, X = missing), before the engine was run on the answers. They represent one marker's judgement and should ideally be re-marked independently by a teacher.",
+  "label_scheme": {
+    "M": 1.0,
+    "P": 0.5,
+    "X": 0.0
+  },
+  "splits": {
+    "dev": "Q1-Q8. Used to design and calibrate the engine. Q1-Q4 were the original calibration questions; Q5-Q8 were the first held-out test split (engine v1, see results/v1_evaluation_embedding_first_test_run.md). After their errors were inspected they could no longer count as unseen, so they were moved to dev. v3 added targeted dev answers (ids Qn-dN: short correct definitions, negated statements, wrong definitions with the expected keywords, swapped definitions), labelled before any v3 engine run. v4 added targeted dev answers (ids Qn-vN: dense correct sentences, short definitions, vague and wrong-with-keywords answers), labelled before any v4 engine change.",
+    "test": "Q9-Q12. Held out for engine v2 (pre-registered result in results/v2_*). PREVIOUSLY SEEN: their per-answer errors were inspected after the v2 run, so they are NOT independent for engine v3. Reported as 'seen test' only.",
+    "final": "Q13-Q18 live in final_test.json: the v3 final set, evaluated once for v3. Historical evidence only; it was inspected after the v3 run and is NOT used to tune or test v4.",
+    "v4_fresh": "R1-R8 live in v4_fresh_test.json, written before any v4 change; evaluated once with --v4-fresh after v4 is frozen."
+  },
+  "questions": [
+    {
+      "id": "Q1",
+      "split": "dev",
+      "text": "Explain tokenization in NLP and why it is important.",
+      "max_marks": 4,
+      "reference_answer": "Tokenization is the process of splitting raw text into smaller units called tokens, such as words, subwords or characters. It is usually the first step of an NLP pipeline, and later steps such as stop-word removal, stemming, POS tagging and vectorisation all operate on tokens. A good tokenizer must handle punctuation, contractions and other special cases correctly.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Definition of tokenization",
+          "description": "Tokenization splits raw text into smaller units called tokens such as words, subwords or characters",
+          "marks": 2,
+          "keywords": [
+            "tokens"
+          ]
+        },
+        {
+          "id": "c2",
+          "label": "First step of the pipeline",
+          "description": "Tokenization is the first preprocessing step and later NLP steps operate on the tokens",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Handling punctuation and special cases",
+          "description": "A tokenizer must handle punctuation, contractions and other special cases",
+          "marks": 1,
+          "keywords": [
+            "punctuation",
+            "contractions"
+          ]
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q1-a1",
+          "type": "paraphrase",
+          "text": "Tokenisation means breaking a piece of text into small meaningful pieces, usually words but sometimes sub-words or single characters. Because almost every later stage of an NLP system - stemming, tagging, building vectors - works on these pieces, it is normally done first. A good tokenizer also has to decide what to do with punctuation marks and contractions such as \"don't\".",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q1-a2",
+          "type": "partial",
+          "text": "Tokenization is when we divide a sentence into words. For example 'I love NLP' becomes 'I', 'love', 'NLP'.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 2
+        },
+        {
+          "id": "Q1-a3",
+          "type": "single_concept",
+          "text": "In an NLP pipeline the first step is always tokenization, and only after that we can do stop word removal, stemming and POS tagging because those steps need tokens.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q1-a4",
+          "type": "spelling",
+          "text": "Tokenizaton is spliting the raw text into tokns, for eg words or charecters. Its the frist step in NLP preprocesing and later steps like POS taging use the tokens. It must handel punctuations also.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "P"
+          },
+          "human_score": 3.5
+        },
+        {
+          "id": "Q1-a5",
+          "type": "irrelevant_long",
+          "text": "Natural language processing is a very interesting field of artificial intelligence. It has many applications in the modern world such as chatbots, translation and voice assistants. Many companies like Google and Amazon invest heavily in it. In the future NLP will become even more important and many jobs will be created. Students should learn Python because it has many libraries. I think NLP is the best subject in the syllabus and everyone should study it carefully.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q1-a6",
+          "type": "incorrect",
+          "text": "Tokenization is the process of converting words into their root form, for example running becomes run. It is done at the end of the pipeline to reduce the vocabulary.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q1-a7",
+          "type": "empty",
+          "text": "",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q1-a8",
+          "type": "repeated",
+          "text": "Tokenization splits text into tokens. Tokenization splits text into tokens. Tokenization splits text into tokens which are words.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 2
+        },
+        {
+          "id": "Q1-d1",
+          "type": "short_correct_definition",
+          "text": "Tokenization splits text into tokens such as words.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 2.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q1-d2",
+          "type": "negated",
+          "text": "Tokenization is not the first step; it is done only after stemming and tagging are finished.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q1-d3",
+          "type": "vague_short",
+          "text": "Tokenization is important in NLP.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q1-v1",
+          "type": "dense_correct",
+          "text": "Tokenization splits text into word or subword tokens first, so later steps like tagging can work on them, and it must handle punctuation and contractions.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 4.0,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "split": "dev",
+      "text": "What is TF-IDF? Explain how it assigns weights to terms.",
+      "max_marks": 5,
+      "reference_answer": "TF-IDF (term frequency - inverse document frequency) is a statistic that weights how important a word is to a document in a collection. Term frequency counts how often the term appears in the document. Inverse document frequency measures how rare the term is across the corpus and is computed as log(N / df), where N is the number of documents and df is the number of documents containing the term. The TF-IDF weight is the product TF x IDF. Words that occur in almost every document, such as 'the', get a weight close to zero, while words that are distinctive for a document get a high weight.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Term frequency",
+          "description": "Term frequency counts how often a term occurs in a document",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Inverse document frequency",
+          "description": "Inverse document frequency measures how rare a term is across the corpus, computed as log(N / df) where N is the number of documents and df the number of documents containing the term",
+          "marks": 2,
+          "keywords": [
+            "log",
+            "idf"
+          ]
+        },
+        {
+          "id": "c3",
+          "label": "Weight = TF x IDF",
+          "description": "The TF-IDF weight of a term is the product of its TF and IDF values",
+          "marks": 1,
+          "keywords": [
+            "multiply",
+            "product"
+          ]
+        },
+        {
+          "id": "c4",
+          "label": "Effect on common vs distinctive words",
+          "description": "Words common to many documents such as 'the' get a low weight while distinctive words get a high weight",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q2-a1",
+          "type": "paraphrase",
+          "text": "TF-IDF is a way of scoring words in a document. The first part, term frequency, is simply how many times the word appears in that document. The second part, IDF, is the log of the total number of documents divided by the number of documents that contain the word, so rare words get a big value. Multiplying the two gives the final score. As a result, words like 'is' or 'the' that appear everywhere end up with almost zero weight, while words that are specific to a document stand out.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 5
+        },
+        {
+          "id": "Q2-a2",
+          "type": "partial",
+          "text": "TF-IDF stands for term frequency inverse document frequency. TF is the count of a word in a document. It is used in search engines and for text classification.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q2-a3",
+          "type": "partial",
+          "text": "IDF gives more importance to rare words. If a word appears in many documents its IDF is low.",
+          "labels": {
+            "c1": "X",
+            "c2": "P",
+            "c3": "X",
+            "c4": "P"
+          },
+          "human_score": 1.5
+        },
+        {
+          "id": "Q2-a4",
+          "type": "abbreviations",
+          "text": "TF = no. of times a term occurs in a doc. IDF = log(N/df) where N is the total docs in the corpus and df is the docs having the term. TF-IDF = TF x IDF. Hence frequent words like 'a', 'an', 'the' receive low scores and unique keywords get high scores.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 5
+        },
+        {
+          "id": "Q2-a5",
+          "type": "incorrect",
+          "text": "TF-IDF is a deep learning model that translates text from one language to another. It uses neural networks with attention to generate the output sentence word by word.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q2-a6",
+          "type": "spelling",
+          "text": "Term frequncy is how often a word apears in a documnt. Inverse documnt frequncy is log of N divided by the number of documnts that contain the word, it shows how rare the word is. We multipy them to get the wieght.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q2-a7",
+          "type": "keyword_list",
+          "text": "TF IDF term frequency inverse document frequency weight log rare common words documents corpus.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q2-d1",
+          "type": "short_correct_definition",
+          "text": "TF counts how often a word appears in a document.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q2-d2",
+          "type": "wrong_with_keywords",
+          "text": "IDF is high for words that appear in almost every document, so common words like 'the' get the highest TF-IDF weight.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q2-v1",
+          "type": "dense_correct",
+          "text": "TF counts a term in a document, IDF = log(N/df) rewards rare terms, and their product gives low weight to common words like 'the'.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 5.0,
+          "added_in": "v4-dev"
+        },
+        {
+          "id": "Q2-v2",
+          "type": "vague_short",
+          "text": "TF-IDF gives weights to words.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "split": "dev",
+      "text": "Differentiate between stemming and lemmatization.",
+      "max_marks": 4,
+      "reference_answer": "Stemming removes suffixes from words using simple heuristic rules, for example with the Porter stemmer, so the resulting stem may not be a real word (studies becomes studi). Lemmatization uses a vocabulary and morphological analysis, often together with the part of speech, to return the dictionary form of a word, called the lemma (better becomes good). Lemmatization is therefore more accurate but slower than stemming.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Stemming uses rules",
+          "description": "Stemming removes word suffixes using simple heuristic rules such as the Porter stemmer",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Stems may not be real words",
+          "description": "The stem produced by stemming may not be a valid dictionary word, for example studies becomes studi",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Lemmatization returns the lemma",
+          "description": "Lemmatization uses a vocabulary, morphological analysis and the part of speech to return the dictionary form called the lemma",
+          "marks": 1,
+          "keywords": [
+            "lemma",
+            "dictionary form"
+          ]
+        },
+        {
+          "id": "c4",
+          "label": "Accuracy vs speed trade-off",
+          "description": "Lemmatization is more accurate but slower than stemming",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q3-a1",
+          "type": "paraphrase",
+          "text": "Stemming just chops the ending off a word by following fixed rules, like the Porter algorithm, so 'studies' may turn into 'studi', which is not a real word. Lemmatization instead looks the word up in a dictionary and considers its part of speech to give the proper base form, e.g. 'better' becomes 'good'. So lemmatization gives cleaner results but takes more time to compute.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q3-a2",
+          "type": "partial",
+          "text": "Both stemming and lemmatization reduce words to a base form. Stemming cuts off suffixes like -ing and -ed, for example playing becomes play.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q3-a3",
+          "type": "incorrect_swapped",
+          "text": "Lemmatization simply cuts the end of the word using rules, so it is very fast. Stemming uses a dictionary and grammar to find the correct root word, so stemming is more accurate.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q3-a4",
+          "type": "single_concept",
+          "text": "Lemmatization converts a word to its lemma, which is the form you find in a dictionary. To do this it needs the part of speech of the word, for example 'running' as a verb becomes 'run'.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q3-a5",
+          "type": "spelling",
+          "text": "Steming removes sufixes from words with rules, for exmple studies -> studi which is not a real word. Lemmatisation uses vocabulary and morphology to give the dictonary form. Lemmatisation is more acurate but slow.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q3-a6",
+          "type": "irrelevant_long",
+          "text": "Language is the main way humans communicate with each other. There are thousands of languages spoken in the world and each has its own grammar and history. Children learn their first language naturally by listening to their parents. Learning a second language helps in getting jobs and travelling to other countries. Many schools teach English, Hindi and a regional language.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q3-a7",
+          "type": "single_concept",
+          "text": "Lemmatization is better than stemming because it is more accurate, but stemming is faster.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "M"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q3-d1",
+          "type": "short_correct_definition",
+          "text": "Stemming chops off word endings using rules, so the result may not be a real word.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 2.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q3-d2",
+          "type": "negated",
+          "text": "Lemmatization does not use a dictionary and is less accurate than stemming.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q3-v1",
+          "type": "dense_correct",
+          "text": "Stemming crudely strips suffixes by rules, while lemmatization uses a dictionary and part of speech to return the lemma.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 2.0,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "split": "dev",
+      "text": "Describe the process of photosynthesis.",
+      "max_marks": 5,
+      "reference_answer": "Photosynthesis is the process by which green plants make their own food. It takes place in the chloroplasts, where the green pigment chlorophyll absorbs light. The plant takes in carbon dioxide and water as raw materials. Light energy is converted into chemical energy, glucose is produced and oxygen is released as a by-product (6CO2 + 6H2O -> C6H12O6 + 6O2). The process has two stages: the light-dependent reactions and the light-independent Calvin cycle.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Chloroplasts and chlorophyll",
+          "description": "Photosynthesis takes place in the chloroplasts of green plants, where the pigment chlorophyll absorbs light",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Raw materials",
+          "description": "Plants take in carbon dioxide and water as raw materials",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Energy conversion",
+          "description": "Light energy is converted into chemical energy",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Products",
+          "description": "Glucose is produced and oxygen is released as a by-product",
+          "marks": 1
+        },
+        {
+          "id": "c5",
+          "label": "Two stages",
+          "description": "It has two stages: the light-dependent reactions and the light-independent Calvin cycle",
+          "marks": 1,
+          "keywords": [
+            "calvin cycle"
+          ]
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q4-a1",
+          "type": "paraphrase",
+          "text": "Green plants make their own food through photosynthesis inside chloroplasts, whose green pigment chlorophyll captures sunlight. Using carbon dioxide from the air and water from the soil, the plant changes light energy into chemical energy stored in sugar (glucose), and oxygen is given off. The process happens in two phases: the light reactions in the thylakoids and the Calvin cycle, which does not directly need light.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M",
+            "c5": "M"
+          },
+          "human_score": 5
+        },
+        {
+          "id": "Q4-a2",
+          "type": "abbreviations",
+          "text": "6CO2 + 6H2O + light -> C6H12O6 + 6O2. Plants use CO2 and H2O with sunlight to make glucose and release O2.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "P",
+            "c4": "M",
+            "c5": "X"
+          },
+          "human_score": 2.5
+        },
+        {
+          "id": "Q4-a3",
+          "type": "partial",
+          "text": "Photosynthesis is how plants make food using sunlight. The leaves contain chlorophyll which is green.",
+          "labels": {
+            "c1": "P",
+            "c2": "X",
+            "c3": "P",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q4-a4",
+          "type": "incorrect",
+          "text": "In photosynthesis plants breathe in oxygen and release carbon dioxide at night. This happens in the mitochondria and produces energy for the plant to grow.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q4-a5",
+          "type": "spelling",
+          "text": "Photosynthsis happens in chloroplast where chlorophyl absorbs sun light. Plants take carbon dioxde and water and convert light energy to chemicl energy. Glucos is made and oxygen is relesed.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M",
+            "c5": "X"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q4-a6",
+          "type": "irrelevant_long",
+          "text": "Plants are very important for our planet. We should plant more trees to save the environment. Trees give us shade, fruits and wood for furniture. Deforestation is a big problem in many countries and governments must stop it. Many birds and animals live in forests and depend on them. We should celebrate Van Mahotsav every year.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q4-a7",
+          "type": "single_concept",
+          "text": "Photosynthesis has two main stages. The light-dependent reactions happen first and make ATP and NADPH, then the Calvin cycle uses them to fix carbon.",
+          "labels": {
+            "c1": "X",
+            "c2": "P",
+            "c3": "X",
+            "c4": "X",
+            "c5": "M"
+          },
+          "human_score": 1.5
+        },
+        {
+          "id": "Q4-d1",
+          "type": "short_correct_definition",
+          "text": "Plants make glucose and release oxygen using carbon dioxide and water.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "M",
+            "c5": "X"
+          },
+          "human_score": 2.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q4-d2",
+          "type": "wrong_with_keywords",
+          "text": "In photosynthesis chlorophyll releases carbon dioxide and absorbs oxygen to break down glucose.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q4-v1",
+          "type": "dense_correct",
+          "text": "Chloroplasts use light energy to turn carbon dioxide and water into glucose, releasing oxygen.",
+          "labels": {
+            "c1": "P",
+            "c2": "M",
+            "c3": "P",
+            "c4": "M",
+            "c5": "X"
+          },
+          "human_score": 3.0,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q5",
+      "split": "dev",
+      "text": "What are word embeddings? How do they differ from one-hot encoding?",
+      "max_marks": 5,
+      "reference_answer": "One-hot encoding represents each word as a sparse vector whose length equals the vocabulary size, with a single 1 and all other values 0. Such vectors are orthogonal, so they carry no notion of similarity between words. Word embeddings are dense, low-dimensional, real-valued vectors. They are learned from the contexts in which words appear (the distributional hypothesis), for example with Word2Vec or GloVe. As a result, words with similar meanings get nearby vectors and embeddings capture semantic relationships such as king - man + woman = queen.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "One-hot representation",
+          "description": "One-hot encoding represents each word as a sparse vector as long as the vocabulary with a single 1 and all other values 0",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "One-hot has no similarity",
+          "description": "One-hot vectors carry no notion of similarity because all word vectors are orthogonal and equally distant",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Embeddings are dense vectors",
+          "description": "Word embeddings are dense, low-dimensional, real-valued vectors",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Learned from context",
+          "description": "Embeddings are learned from the contexts in which words appear, for example with Word2Vec or GloVe",
+          "marks": 1,
+          "keywords": [
+            "word2vec",
+            "glove"
+          ]
+        },
+        {
+          "id": "c5",
+          "label": "Similar words are close",
+          "description": "Words with similar meanings get nearby vectors, so embeddings capture semantic relationships",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q5-a1",
+          "type": "paraphrase",
+          "text": "With one-hot encoding every word gets a vector whose length equals the vocabulary size, filled with zeros except a single one, so the vectors are huge and sparse. Since any two such vectors are orthogonal, the encoding cannot tell that 'cat' is closer to 'dog' than to 'car'. Word embeddings fix this by giving each word a short, dense vector of real numbers, for example 300 dimensions. These vectors are trained from the words that surround each word in a large corpus, as in Word2Vec or GloVe. As a result, related words end up close together and even analogies like king - man + woman = queen work.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M",
+            "c5": "M"
+          },
+          "human_score": 5
+        },
+        {
+          "id": "Q5-a2",
+          "type": "partial",
+          "text": "One-hot encoding uses 0s and 1s to represent words. Embeddings are better because they are dense vectors.",
+          "labels": {
+            "c1": "P",
+            "c2": "X",
+            "c3": "P",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q5-a3",
+          "type": "partial",
+          "text": "The main advantage of embeddings is that similar words like 'happy' and 'joyful' have vectors that are close to each other, which one-hot encoding cannot capture.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X",
+            "c5": "M"
+          },
+          "human_score": 2
+        },
+        {
+          "id": "Q5-a4",
+          "type": "abbreviations",
+          "text": "OHE: each word -> |V|-dim vector with one 1 and rest 0; very sparse. All OHE vectors are orthogonal so no similarity info. Embeddings (w2v, GloVe) are dense low-dim real vectors learnt from co-occurrence context. Semantically similar words lie close in the vector space.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M",
+            "c5": "M"
+          },
+          "human_score": 5
+        },
+        {
+          "id": "Q5-a5",
+          "type": "incorrect",
+          "text": "Word embeddings are a method of compressing text files so they take less disk space, and one-hot encoding is used to encrypt the words for security.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q5-a6",
+          "type": "irrelevant_long",
+          "text": "Machine learning has become very popular in recent years. Many students want to become data scientists because the salary is very good. To learn machine learning you need to know mathematics, statistics and programming. There are many online courses on websites like Coursera and Udemy. Practising on Kaggle competitions is also a good idea to build a strong portfolio for interviews.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q5-a7",
+          "type": "spelling",
+          "text": "One hot encodng gives every word a vector of vocabluary size with a singel 1, so it is sparce and all words are equaly far apart. Embedings are dense vectors lerned from context by word2vec, and simlar words get simlar vectors.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "P",
+            "c4": "M",
+            "c5": "M"
+          },
+          "human_score": 4.5
+        },
+        {
+          "id": "Q5-d1",
+          "type": "short_correct_definition",
+          "text": "Word embeddings are dense, low-dimensional vectors of real numbers that represent words.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "M",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 1.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q5-d2",
+          "type": "swapped",
+          "text": "One-hot vectors are dense and capture similarity between words, whereas embeddings are sparse vectors with a single 1.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X",
+            "c5": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q5-v1",
+          "type": "dense_correct",
+          "text": "One-hot vectors are sparse and treat all words as equally distant, whereas embeddings are dense learned vectors that place similar words close together.",
+          "labels": {
+            "c1": "P",
+            "c2": "M",
+            "c3": "P",
+            "c4": "P",
+            "c5": "M"
+          },
+          "human_score": 3.5,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q6",
+      "split": "dev",
+      "text": "Explain Named Entity Recognition (NER) and its applications.",
+      "max_marks": 4,
+      "reference_answer": "Named Entity Recognition locates named entities in unstructured text and classifies them into predefined categories. Typical categories are person, organization, location, date and money. It is used for information extraction, in search engines, question answering systems and chatbots. NER is usually solved as a sequence labelling task with BIO tags, using CRFs or deep learning models such as BiLSTM-CRF or BERT.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Definition",
+          "description": "Named Entity Recognition locates named entities in text and classifies them into predefined categories",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Entity categories",
+          "description": "Typical entity categories include person, organization, location, date and money",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Applications",
+          "description": "Applications include information extraction, search engines, question answering and chatbots",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Sequence labelling approach",
+          "description": "NER is usually solved as sequence labelling with BIO tags using CRFs or deep learning models",
+          "marks": 1,
+          "keywords": [
+            "BIO",
+            "CRF"
+          ]
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q6-a1",
+          "type": "paraphrase",
+          "text": "NER is the task of finding the names of real-world things in a sentence and assigning each one a type. For example in 'Sundar Pichai visited Delhi on Monday', it tags Sundar Pichai as a person, Delhi as a place and Monday as a date; organisations and amounts of money are other common types. It is used to pull structured facts out of news, to improve search results, and inside question answering systems and chat assistants. Most systems treat it as a token labelling problem with B-I-O tags and train a CRF or a neural network such as a BiLSTM or BERT.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q6-a2",
+          "type": "partial",
+          "text": "Named entity recognition finds names of people and places in text.",
+          "labels": {
+            "c1": "P",
+            "c2": "P",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q6-a3",
+          "type": "single_concept",
+          "text": "NER is very useful in chatbots, search engines and for extracting information from documents like resumes.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q6-a4",
+          "type": "incorrect",
+          "text": "NER stands for Neural Error Rate. It measures how many mistakes a neural network makes while training.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q6-a5",
+          "type": "spelling",
+          "text": "NER identifys entites like persn, organisation, locaton and dates in text and clasifies them. It is used in QA systems and info extraction. Models like CRF and BERT label each token with BIO tags.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q6-a6",
+          "type": "empty",
+          "text": "   ",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q6-a7",
+          "type": "irrelevant_long",
+          "text": "Sentiment analysis is the task of deciding whether a review is positive or negative. Companies use it to understand customer opinions about their products. It can be done with a lexicon of positive and negative words or with machine learning classifiers such as Naive Bayes. Deep learning models like LSTMs give better accuracy on large datasets of movie reviews.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q6-d1",
+          "type": "short_correct_definition",
+          "text": "NER finds named entities in text and classifies them into categories like person, organization and location.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 2.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q6-d2",
+          "type": "negated",
+          "text": "NER does not classify entities into categories; it only splits text into sentences.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q6-v1",
+          "type": "short_correct_definition",
+          "text": "NER labels names in text as people, organizations or places.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 2.0,
+          "added_in": "v4-dev"
+        },
+        {
+          "id": "Q6-v2",
+          "type": "wrong_with_keywords",
+          "text": "NER classifies whole documents into categories such as sports and politics using BIO tags.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q7",
+      "split": "dev",
+      "text": "What are stop words? When should stop-word removal be avoided?",
+      "max_marks": 3,
+      "reference_answer": "Stop words are very frequent function words such as 'the', 'is' and 'and' that carry little meaning on their own. Removing them reduces noise and the size of the data, which makes tasks such as search and text classification more efficient. However, they should not be removed when they carry meaning, for example negations like 'not' in sentiment analysis, or in machine translation and exact phrase search.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Definition with examples",
+          "description": "Stop words are very frequent function words such as 'the', 'is' and 'and' that carry little meaning on their own",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Benefit of removal",
+          "description": "Removing stop words reduces noise and the size of the data, making search and text classification more efficient",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "When to keep them",
+          "description": "Stop words should not be removed when they carry meaning, such as negations like 'not' in sentiment analysis, machine translation or phrase search",
+          "marks": 1,
+          "keywords": [
+            "not",
+            "sentiment"
+          ]
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q7-a1",
+          "type": "paraphrase",
+          "text": "Stop words are the extremely common little words of a language - articles, prepositions and helping verbs like 'a', 'of' and 'was' - which add little meaning by themselves. Dropping them shrinks the vocabulary and lets search engines and classifiers concentrate on the informative words. However, they must be kept when they change meaning: removing 'not' from 'not good' flips the sentiment, and translation or exact phrase queries also need them.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3
+        },
+        {
+          "id": "Q7-a2",
+          "type": "partial",
+          "text": "Stop words are words like the, a, an, is. We remove them in preprocessing.",
+          "labels": {
+            "c1": "P",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.5
+        },
+        {
+          "id": "Q7-a3",
+          "type": "single_concept",
+          "text": "In sentiment analysis you should not delete the word 'not', because 'not happy' and 'happy' mean opposite things.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "M"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q7-a4",
+          "type": "repeated",
+          "text": "Stop words are common words like is, the, and. Stop words are common words like is, the, and. Removing stop words reduces the size of the text. Removing stop words reduces the size of the text.",
+          "labels": {
+            "c1": "P",
+            "c2": "P",
+            "c3": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q7-a5",
+          "type": "incorrect",
+          "text": "Stop words are the words at the end of a sentence, like the full stop, and they tell the computer where the sentence ends.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q7-a6",
+          "type": "spelling",
+          "text": "Stopwords are very comon words such as 'the' and 'is' that have litle meaning. Removng them reduces noice and makes classifcation faster. But for sentimnt analysis we should keep negations like 'not'.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3
+        },
+        {
+          "id": "Q7-a7",
+          "type": "irrelevant_long",
+          "text": "Python is the most popular programming language for data science. It has libraries like NumPy, pandas and scikit-learn. Python code is easy to read and write, which makes it good for beginners. Many companies use Python for web development with Django and Flask. You can also automate boring tasks with simple Python scripts.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q7-d1",
+          "type": "short_correct_definition",
+          "text": "Stop words are very common words like 'the' and 'is' that carry little meaning.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 1.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q7-d2",
+          "type": "negated",
+          "text": "Stop words should always be removed, even in sentiment analysis, because words like 'not' never change the meaning.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q7-v1",
+          "type": "dense_correct",
+          "text": "Stop words like 'the' carry little meaning, so removing them shrinks data, but negations like 'not' must be kept for sentiment.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3.0,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q8",
+      "split": "dev",
+      "text": "How does a database index improve query performance? Mention its drawbacks.",
+      "max_marks": 4,
+      "reference_answer": "An index is a separate data structure, typically a B-tree or a hash table, that maps column values to the locations of the rows containing them. It lets the database find matching rows without scanning the whole table, so lookups take logarithmic instead of linear time. Indexes cost extra storage and slow down inserts, updates and deletes because the index must be maintained. They should therefore be created on columns that are frequently used in WHERE clauses, joins or sorting.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Index data structure",
+          "description": "An index is a separate data structure such as a B-tree or hash table that maps column values to row locations",
+          "marks": 1,
+          "keywords": [
+            "b-tree",
+            "hash"
+          ]
+        },
+        {
+          "id": "c2",
+          "label": "Avoids full table scan",
+          "description": "The index lets the database find rows without scanning the whole table, making lookups much faster",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Drawbacks",
+          "description": "Indexes need extra storage and slow down inserts, updates and deletes because the index must be maintained",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Which columns to index",
+          "description": "Indexes should be created on columns frequently used in WHERE clauses, joins or sorting",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q8-a1",
+          "type": "paraphrase",
+          "text": "A database index works like the index at the back of a book: it is an extra structure, usually a B-tree, that stores the values of a column together with pointers to the rows that hold them. Instead of reading every row in the table, the engine walks the tree and jumps straight to the matching rows, so searching takes roughly log n steps. The price is additional disk space and slower writes, since every insert or update must also update the index. That is why we index only columns that appear often in WHERE conditions, joins or ORDER BY.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q8-a2",
+          "type": "partial",
+          "text": "An index makes queries faster because the database does not have to search every row.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q8-a3",
+          "type": "single_concept",
+          "text": "Too many indexes are bad because they use more storage and make INSERT and UPDATE operations slower.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q8-a4",
+          "type": "abbreviations",
+          "text": "Index = B-tree / hash DS mapping key -> row location. Avoids full table scan, O(log n) lookup vs O(n). Downside: extra space + slower writes (insert/update/delete). Use on cols in WHERE, JOIN, ORDER BY.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q8-a5",
+          "type": "incorrect",
+          "text": "An index is the first row of a table. It stores the column names and the primary key so the table can be printed nicely.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q8-a6",
+          "type": "irrelevant_long",
+          "text": "Cloud computing allows companies to rent servers instead of buying them. Popular providers are AWS, Azure and Google Cloud. It is cheaper for startups because they only pay for what they use. Cloud services can automatically scale when there is more traffic. Security and internet connectivity are the main concerns when moving to the cloud.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q8-a7",
+          "type": "spelling",
+          "text": "An indx is a data structre like a B-tree that points to the rows. It speeds up serching because a full table scan is not neded. But it takes extra spce and makes inserts slower.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 3
+        },
+        {
+          "id": "Q8-d1",
+          "type": "short_correct_definition",
+          "text": "An index is a data structure such as a B-tree that maps column values to row locations.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q8-d2",
+          "type": "wrong_with_keywords",
+          "text": "Indexes make inserts and updates faster and use no extra storage, so every column should be indexed.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0.0,
+          "added_in": "v3-dev"
+        },
+        {
+          "id": "Q8-v1",
+          "type": "dense_correct",
+          "text": "A B-tree index maps values to rows so lookups avoid full scans, at the cost of extra space and slower writes.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "X"
+          },
+          "human_score": 3.0,
+          "added_in": "v4-dev"
+        },
+        {
+          "id": "Q8-v2",
+          "type": "short_correct_definition",
+          "text": "An index lets the database find rows without scanning the whole table.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1.0,
+          "added_in": "v4-dev"
+        }
+      ]
+    },
+    {
+      "id": "Q9",
+      "split": "test",
+      "text": "Explain the bag-of-words model and its limitations.",
+      "max_marks": 4,
+      "reference_answer": "The bag-of-words model represents a document as a vector of word counts (or presence values) over a fixed vocabulary built from the corpus. It ignores grammar and word order, so 'dog bites man' and 'man bites dog' get the same vector. Because the vocabulary is large, the vectors are high-dimensional and sparse. It also cannot capture meaning or similarity between words: synonyms such as 'car' and 'automobile' are treated as unrelated features.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Count vector over a vocabulary",
+          "description": "Bag of words represents a document as a vector of word counts or presence over a fixed vocabulary",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Word order is ignored",
+          "description": "Word order and grammar are ignored",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "High-dimensional sparse vectors",
+          "description": "The vectors are high-dimensional and sparse because the vocabulary is large",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "No semantic similarity",
+          "description": "It cannot capture meaning or similarity between words, so synonyms are treated as unrelated",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q9-a1",
+          "type": "paraphrase",
+          "text": "In the bag-of-words approach we first build a vocabulary of all words in the corpus and then describe each document by how many times every vocabulary word occurs in it. The arrangement of the words is thrown away, so 'dog bites man' and 'man bites dog' get exactly the same vector. Because the vocabulary can contain tens of thousands of words, these vectors are very long and mostly zeros. Another weakness is that it has no idea of meaning: 'car' and 'automobile' are just two unrelated columns.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q9-a2",
+          "type": "partial",
+          "text": "Bag of words counts how many times each word appears in a document and uses these counts as features.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q9-a3",
+          "type": "single_concept",
+          "text": "The biggest problem with bag of words is that it ignores the order of words, so sentences with different meanings can look identical.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q9-a4",
+          "type": "spelling",
+          "text": "Bag of wrds converts a documnt into a vecter of word counts using a fixed vocabulery. It ignors the order of words and the vecters are very sparce. It also can not understand synonims.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q9-a5",
+          "type": "incorrect",
+          "text": "Bag of words is a deep learning model that reads a sentence word by word and remembers the order using a hidden state.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q9-a6",
+          "type": "irrelevant_long",
+          "text": "Data cleaning is an important step in any project. Raw data often has missing values, duplicates and wrong formats. Analysts spend most of their time preparing data before building models. Tools like Excel, SQL and pandas are commonly used for this work. Good documentation also helps other team members understand the data.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q9-a7",
+          "type": "keyword_list",
+          "text": "bag of words vocabulary counts vector sparse order ignored meaning synonyms",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "split": "test",
+      "text": "What is overfitting in machine learning and how can it be prevented?",
+      "max_marks": 4,
+      "reference_answer": "Overfitting happens when a model learns the training data, including its noise, too closely instead of the general pattern. An overfitted model performs very well on the training data but poorly on unseen test data, meaning it generalises badly. It can be detected by comparing training and validation error, for example with cross-validation. It can be prevented with regularisation (L1/L2), more training data, early stopping, dropout or a simpler model.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Definition",
+          "description": "Overfitting happens when a model learns the training data, including its noise, too closely",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Poor generalisation",
+          "description": "An overfitted model performs well on training data but poorly on unseen test data",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Detection",
+          "description": "Overfitting is detected by comparing training and validation error, for example with cross-validation",
+          "marks": 1
+        },
+        {
+          "id": "c4",
+          "label": "Prevention",
+          "description": "It is prevented with regularisation, more training data, early stopping, dropout or a simpler model",
+          "marks": 1,
+          "keywords": [
+            "regularization",
+            "dropout",
+            "early stopping"
+          ]
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q10-a1",
+          "type": "paraphrase",
+          "text": "A model overfits when it memorises the examples it was trained on, noise and all, instead of learning the general pattern. You can see it when accuracy on the training set is excellent but accuracy on new data is much worse. Keeping a separate validation set, or using k-fold cross-validation, shows the gap between the two errors. To avoid it we can collect more data, add L1/L2 regularisation, use dropout, stop training early or choose a less complex model.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q10-a2",
+          "type": "partial",
+          "text": "Overfitting means the model gives high accuracy on training data but low accuracy on test data.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q10-a3",
+          "type": "single_concept",
+          "text": "We can use dropout, early stopping and L2 regularization to reduce overfitting.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "M"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q10-a4",
+          "type": "abbreviations",
+          "text": "Overfitting = model fits noise in train set -> low train err, high test err (poor generalisation). Detect via val curve / k-fold CV. Fix: more data, L1/L2 reg, dropout, early stopping, simpler model.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q10-a5",
+          "type": "incorrect",
+          "text": "Overfitting is when the model is too simple and cannot learn the training data, so both training and test accuracy are low. It is solved by training for fewer epochs.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q10-a6",
+          "type": "irrelevant_long",
+          "text": "Artificial intelligence is changing many industries such as healthcare, banking and education. Self-driving cars use cameras and sensors to understand the road. Voice assistants like Alexa and Siri can answer questions and play music. Many people worry that AI will replace human jobs in the future. Governments are now creating rules to make AI safe and fair.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q10-a7",
+          "type": "spelling",
+          "text": "Overfiting is when the model lerns the trainng data too well includng the noise. It gives high acuracy on trainng data but poor acuracy on new data. Regularisaton and droput help prevent it.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "X",
+            "c4": "M"
+          },
+          "human_score": 3
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "split": "test",
+      "text": "State Newton's third law of motion and explain it with an example.",
+      "max_marks": 3,
+      "reference_answer": "Newton's third law states that for every action there is an equal and opposite reaction: when one body exerts a force on a second body, the second body exerts a force of equal magnitude in the opposite direction on the first. The action and reaction forces act on two different bodies, so they do not cancel each other. For example, a rocket pushes exhaust gases backwards and the gases push the rocket forwards; similarly a gun recoils when a bullet is fired.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Statement of the law",
+          "description": "For every action there is an equal and opposite reaction",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Forces act on different bodies",
+          "description": "The action and reaction forces act on two different bodies, so they do not cancel each other",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Example",
+          "description": "An example such as a rocket pushing exhaust gases backwards while the gases push the rocket forwards, or the recoil of a gun",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q11-a1",
+          "type": "paraphrase",
+          "text": "Newton's third law says that whenever one object pushes or pulls on another, the second object pushes or pulls back on the first with a force of the same size in the opposite direction. These two forces act on different objects, which is why they never cancel out. For instance, when a gun is fired the bullet moves forward and the gun recoils backwards into the shooter's shoulder.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3
+        },
+        {
+          "id": "Q11-a2",
+          "type": "partial",
+          "text": "Every action has an equal and opposite reaction.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q11-a3",
+          "type": "single_concept",
+          "text": "When we swim we push the water backwards and the water pushes us forward.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "M"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q11-a4",
+          "type": "incorrect",
+          "text": "Newton's third law states that an object stays at rest or keeps moving at constant speed unless a force acts on it.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q11-a5",
+          "type": "spelling",
+          "text": "For evry action there is an equl and oposite reacton. The two forses act on diffrent bodys. Exampel: a rocket pushes gases down and the gases push the rocket up.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M"
+          },
+          "human_score": 3
+        },
+        {
+          "id": "Q11-a6",
+          "type": "irrelevant_long",
+          "text": "Isaac Newton was a famous English scientist born in 1643. He studied at Cambridge University and also worked on optics and mathematics. There is a popular story that an apple fell on his head. He was also the president of the Royal Society and is buried in Westminster Abbey.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q11-a7",
+          "type": "empty",
+          "text": "",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X"
+          },
+          "human_score": 0
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "split": "test",
+      "text": "What is part-of-speech (POS) tagging? Why is it a challenging task?",
+      "max_marks": 4,
+      "reference_answer": "Part-of-speech tagging assigns a grammatical category such as noun, verb, adjective or adverb to each word in a sentence. It is challenging because many words are ambiguous and their correct tag depends on context; for example 'book' is a noun in 'read the book' but a verb in 'book a ticket'. Taggers therefore use statistical or neural sequence models such as HMMs with the Viterbi algorithm, CRFs or BiLSTMs trained on annotated corpora like the Penn Treebank. POS tags are used in downstream tasks such as parsing, named entity recognition, lemmatization and information extraction.",
+      "rubric": [
+        {
+          "id": "c1",
+          "label": "Definition",
+          "description": "Part-of-speech tagging assigns a grammatical category such as noun, verb or adjective to each word in a sentence",
+          "marks": 1
+        },
+        {
+          "id": "c2",
+          "label": "Ambiguity depends on context",
+          "description": "It is difficult because many words are ambiguous and their tag depends on context, for example 'book' can be a noun or a verb",
+          "marks": 1
+        },
+        {
+          "id": "c3",
+          "label": "Sequence models",
+          "description": "Taggers use statistical or neural sequence models such as HMMs, CRFs or BiLSTMs trained on annotated corpora",
+          "marks": 1,
+          "keywords": [
+            "HMM",
+            "CRF"
+          ]
+        },
+        {
+          "id": "c4",
+          "label": "Downstream uses",
+          "description": "POS tags are used in downstream tasks such as parsing, named entity recognition, lemmatization and information extraction",
+          "marks": 1
+        }
+      ],
+      "answers": [
+        {
+          "id": "Q12-a1",
+          "type": "paraphrase",
+          "text": "POS tagging labels every word in a sentence with its word class - noun, verb, adjective, adverb and so on. The hard part is ambiguity: 'book' is a noun in 'read the book' but a verb in 'book a ticket', so the tagger must look at the neighbouring words. Modern taggers learn this from hand-annotated corpora such as the Penn Treebank using HMMs with the Viterbi algorithm, CRFs or neural networks. The tags are then fed to later steps like syntactic parsing, lemmatization and entity recognition.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q12-a2",
+          "type": "partial",
+          "text": "POS tagging means marking each word as a noun, verb, adjective etc.",
+          "labels": {
+            "c1": "M",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q12-a3",
+          "type": "single_concept",
+          "text": "The same word can have different tags in different sentences, for example 'run' can be a noun or a verb, so context is needed.",
+          "labels": {
+            "c1": "X",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 1
+        },
+        {
+          "id": "Q12-a4",
+          "type": "abbreviations",
+          "text": "POS = part of speech. Tagger assigns N/V/ADJ tags to each token. Ambiguity: 'book' (N vs V) resolved using context. Models: HMM + Viterbi, CRF, BiLSTM trained on tagged corpora. Used in parsing, NER, lemmatization.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "M",
+            "c4": "M"
+          },
+          "human_score": 4
+        },
+        {
+          "id": "Q12-a5",
+          "type": "incorrect",
+          "text": "POS tagging is a technique to detect the positive or negative sentiment of a sentence.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        },
+        {
+          "id": "Q12-a6",
+          "type": "repeated",
+          "text": "POS tagging gives each word a tag like noun or verb. POS tagging gives each word a tag like noun or verb. Words can have more than one tag depending on context.",
+          "labels": {
+            "c1": "M",
+            "c2": "M",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 2
+        },
+        {
+          "id": "Q12-a7",
+          "type": "irrelevant_long",
+          "text": "Machine translation converts text from one language to another, for example English to Hindi. Early systems used hand-written rules and dictionaries. Later, statistical systems learned from parallel corpora of translated sentences. Today, neural networks with attention, such as the Transformer, give the best translation quality and are used by Google Translate.",
+          "labels": {
+            "c1": "X",
+            "c2": "X",
+            "c3": "X",
+            "c4": "X"
+          },
+          "human_score": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Runtime dependencies (Python 3.11 / 3.12). Versions are the ones the project was tested with.
+fastapi==0.115.0
+starlette==0.38.6
+uvicorn[standard]==0.32.0
+pydantic==2.13.4
+pydantic-settings==2.6.0
+email-validator==2.1.0
+pymongo==4.17.0
+bcrypt==4.0.1
+PyJWT==2.8.0
+# NLP
+sentence-transformers==3.4.1
+transformers==4.57.6
+# Tip: on machines without a GPU install the smaller CPU build of PyTorch first:
+#   pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+torch==2.9.1
+scikit-learn==1.6.1
+numpy==2.4.2
+scipy==1.15.1
+nltk==3.9.1
+# Question authoring drafts via Groq (optional: without GROQ_API_KEY the drafting endpoints answer 503)
+groq==1.7.0

@@ -1,0 +1,1126 @@
+{
+  "backend": "tfidf",
+  "model_name": "tfidf-char-ngrams",
+  "split": "dev",
+  "n_answers": 57,
+  "n_questions": 8,
+  "selection": "structural params by leave-one-question-out CV MAE; thresholds by smoothed MAE on all dev questions",
+  "best": {
+    "debias_weight": 0.0,
+    "keyword_weight": 0.0,
+    "use_sentence_pairs": true,
+    "loqo_cv_mae": 0.7719298245614035,
+    "match_threshold": 0.29,
+    "partial_threshold": 0.24,
+    "dev_fit_mae": 0.6754385964912281,
+    "dev_fit_smoothed_mae": 0.6795321637426901,
+    "dev_fit_concept_accuracy": 0.6872246696035242,
+    "folds": {
+      "Q1": {
+        "match": 0.29,
+        "partial": 0.24,
+        "mae": 0.375
+      },
+      "Q2": {
+        "match": 0.27,
+        "partial": 0.2,
+        "mae": 1.4285714285714286
+      },
+      "Q3": {
+        "match": 0.25,
+        "partial": 0.2,
+        "mae": 1.3571428571428572
+      },
+      "Q4": {
+        "match": 0.29,
+        "partial": 0.24,
+        "mae": 0.7142857142857143
+      },
+      "Q5": {
+        "match": 0.31,
+        "partial": 0.24,
+        "mae": 0.5714285714285714
+      },
+      "Q6": {
+        "match": 0.29,
+        "partial": 0.24,
+        "mae": 0.5
+      },
+      "Q7": {
+        "match": 0.29,
+        "partial": 0.24,
+        "mae": 0.35714285714285715
+      },
+      "Q8": {
+        "match": 0.3,
+        "partial": 0.25,
+        "mae": 0.9285714285714286
+      }
+    }
+  },
+  "top10": [
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.0,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.7719298245614035,
+      "match_threshold": 0.29,
+      "partial_threshold": 0.24,
+      "dev_fit_mae": 0.6754385964912281,
+      "dev_fit_smoothed_mae": 0.6795321637426901,
+      "dev_fit_concept_accuracy": 0.6872246696035242,
+      "folds": {
+        "Q1": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.375
+        },
+        "Q2": {
+          "match": 0.27,
+          "partial": 0.2,
+          "mae": 1.4285714285714286
+        },
+        "Q3": {
+          "match": 0.25,
+          "partial": 0.2,
+          "mae": 1.3571428571428572
+        },
+        "Q4": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.5714285714285714
+        },
+        "Q6": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.35714285714285715
+        },
+        "Q8": {
+          "match": 0.3,
+          "partial": 0.25,
+          "mae": 0.9285714285714286
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.6,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.7807017543859649,
+      "match_threshold": 0.43,
+      "partial_threshold": 0.34,
+      "dev_fit_mae": 0.6403508771929824,
+      "dev_fit_smoothed_mae": 0.6421052631578948,
+      "dev_fit_concept_accuracy": 0.7577092511013216,
+      "folds": {
+        "Q1": {
+          "match": 0.39,
+          "partial": 0.33,
+          "mae": 0.75
+        },
+        "Q2": {
+          "match": 0.39,
+          "partial": 0.34,
+          "mae": 1.6428571428571428
+        },
+        "Q3": {
+          "match": 0.41,
+          "partial": 0.36,
+          "mae": 0.8571428571428571
+        },
+        "Q4": {
+          "match": 0.45,
+          "partial": 0.34,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.45,
+          "partial": 0.36,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.48,
+          "partial": 0.43,
+          "mae": 0.42857142857142855
+        },
+        "Q7": {
+          "match": 0.43,
+          "partial": 0.34,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.48,
+          "partial": 0.43,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.15,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7807017543859649,
+      "match_threshold": 0.36,
+      "partial_threshold": 0.27,
+      "dev_fit_mae": 0.631578947368421,
+      "dev_fit_smoothed_mae": 0.6459649122807017,
+      "dev_fit_concept_accuracy": 0.7048458149779736,
+      "folds": {
+        "Q1": {
+          "match": 0.27,
+          "partial": 0.22,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.27,
+          "partial": 0.21,
+          "mae": 1.5714285714285714
+        },
+        "Q3": {
+          "match": 0.32,
+          "partial": 0.27,
+          "mae": 1.0
+        },
+        "Q4": {
+          "match": 0.36,
+          "partial": 0.27,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.36,
+          "partial": 0.27,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.38,
+          "partial": 0.27,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.36,
+          "partial": 0.27,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.34,
+          "partial": 0.29,
+          "mae": 0.9285714285714286
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.0,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7807017543859649,
+      "match_threshold": 0.31,
+      "partial_threshold": 0.24,
+      "dev_fit_mae": 0.6578947368421053,
+      "dev_fit_smoothed_mae": 0.6590909090909091,
+      "dev_fit_concept_accuracy": 0.6828193832599119,
+      "folds": {
+        "Q1": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.375
+        },
+        "Q2": {
+          "match": 0.3,
+          "partial": 0.2,
+          "mae": 1.4285714285714286
+        },
+        "Q3": {
+          "match": 0.24,
+          "partial": 0.19,
+          "mae": 1.4285714285714286
+        },
+        "Q4": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.32,
+          "partial": 0.24,
+          "mae": 0.5714285714285714
+        },
+        "Q6": {
+          "match": 0.32,
+          "partial": 0.23,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.31,
+          "partial": 0.26,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.6,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7894736842105263,
+      "match_threshold": 0.4,
+      "partial_threshold": 0.32,
+      "dev_fit_mae": 0.6228070175438597,
+      "dev_fit_smoothed_mae": 0.6359649122807017,
+      "dev_fit_concept_accuracy": 0.748898678414097,
+      "folds": {
+        "Q1": {
+          "match": 0.38,
+          "partial": 0.33,
+          "mae": 0.8125
+        },
+        "Q2": {
+          "match": 0.4,
+          "partial": 0.31,
+          "mae": 1.5
+        },
+        "Q3": {
+          "match": 0.4,
+          "partial": 0.32,
+          "mae": 0.7857142857142857
+        },
+        "Q4": {
+          "match": 0.48,
+          "partial": 0.32,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.56,
+          "partial": 0.32,
+          "mae": 0.7142857142857143
+        },
+        "Q6": {
+          "match": 0.51,
+          "partial": 0.32,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.41,
+          "partial": 0.32,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.46,
+          "partial": 0.41,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.3,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7982456140350878,
+      "match_threshold": 0.42,
+      "partial_threshold": 0.29,
+      "dev_fit_mae": 0.6052631578947368,
+      "dev_fit_smoothed_mae": 0.6319298245614036,
+      "dev_fit_concept_accuracy": 0.7224669603524229,
+      "folds": {
+        "Q1": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.75
+        },
+        "Q2": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 1.7142857142857142
+        },
+        "Q3": {
+          "match": 0.33,
+          "partial": 0.28,
+          "mae": 0.8571428571428571
+        },
+        "Q4": {
+          "match": 0.42,
+          "partial": 0.28,
+          "mae": 0.7857142857142857
+        },
+        "Q5": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.42857142857142855
+        },
+        "Q7": {
+          "match": 0.42,
+          "partial": 0.3,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.42,
+          "partial": 0.31,
+          "mae": 0.9285714285714286
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.45,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.8157894736842105,
+      "match_threshold": 0.46,
+      "partial_threshold": 0.35,
+      "dev_fit_mae": 0.6578947368421053,
+      "dev_fit_smoothed_mae": 0.6614035087719299,
+      "dev_fit_concept_accuracy": 0.7224669603524229,
+      "folds": {
+        "Q1": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 1.6428571428571428
+        },
+        "Q3": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 0.9285714285714286
+        },
+        "Q4": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.48,
+          "partial": 0.36,
+          "mae": 0.7857142857142857
+        },
+        "Q6": {
+          "match": 0.47,
+          "partial": 0.36,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.46,
+          "partial": 0.36,
+          "mae": 0.35714285714285715
+        },
+        "Q8": {
+          "match": 0.47,
+          "partial": 0.36,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.45,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.8245614035087719,
+      "match_threshold": 0.39,
+      "partial_threshold": 0.32,
+      "dev_fit_mae": 0.6491228070175439,
+      "dev_fit_smoothed_mae": 0.6427432216905902,
+      "dev_fit_concept_accuracy": 0.7444933920704846,
+      "folds": {
+        "Q1": {
+          "match": 0.39,
+          "partial": 0.3,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 1.7142857142857142
+        },
+        "Q3": {
+          "match": 0.39,
+          "partial": 0.3,
+          "mae": 0.7857142857142857
+        },
+        "Q4": {
+          "match": 0.47,
+          "partial": 0.3,
+          "mae": 0.7857142857142857
+        },
+        "Q5": {
+          "match": 0.47,
+          "partial": 0.41,
+          "mae": 0.8571428571428571
+        },
+        "Q6": {
+          "match": 0.47,
+          "partial": 0.32,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.39,
+          "partial": 0.32,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.47,
+          "partial": 0.4,
+          "mae": 1.0714285714285714
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.3,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.8508771929824561,
+      "match_threshold": 0.42,
+      "partial_threshold": 0.29,
+      "dev_fit_mae": 0.6228070175438597,
+      "dev_fit_smoothed_mae": 0.6417543859649123,
+      "dev_fit_concept_accuracy": 0.7092511013215859,
+      "folds": {
+        "Q1": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.75
+        },
+        "Q2": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 1.7142857142857142
+        },
+        "Q3": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 1.1428571428571428
+        },
+        "Q4": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.43,
+          "partial": 0.29,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.42,
+          "partial": 0.33,
+          "mae": 1.0714285714285714
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.15,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.8508771929824561,
+      "match_threshold": 0.37,
+      "partial_threshold": 0.26,
+      "dev_fit_mae": 0.6666666666666666,
+      "dev_fit_smoothed_mae": 0.6649122807017543,
+      "dev_fit_concept_accuracy": 0.6740088105726872,
+      "folds": {
+        "Q1": {
+          "match": 0.26,
+          "partial": 0.21,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.26,
+          "partial": 0.21,
+          "mae": 1.6428571428571428
+        },
+        "Q3": {
+          "match": 0.26,
+          "partial": 0.21,
+          "mae": 1.4285714285714286
+        },
+        "Q4": {
+          "match": 0.37,
+          "partial": 0.26,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.37,
+          "partial": 0.27,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.37,
+          "partial": 0.26,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.37,
+          "partial": 0.27,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.37,
+          "partial": 0.28,
+          "mae": 0.9285714285714286
+        }
+      }
+    }
+  ],
+  "all_candidates": [
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.0,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.7719298245614035,
+      "match_threshold": 0.29,
+      "partial_threshold": 0.24,
+      "dev_fit_mae": 0.6754385964912281,
+      "dev_fit_smoothed_mae": 0.6795321637426901,
+      "dev_fit_concept_accuracy": 0.6872246696035242,
+      "folds": {
+        "Q1": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.375
+        },
+        "Q2": {
+          "match": 0.27,
+          "partial": 0.2,
+          "mae": 1.4285714285714286
+        },
+        "Q3": {
+          "match": 0.25,
+          "partial": 0.2,
+          "mae": 1.3571428571428572
+        },
+        "Q4": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.5714285714285714
+        },
+        "Q6": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.35714285714285715
+        },
+        "Q8": {
+          "match": 0.3,
+          "partial": 0.25,
+          "mae": 0.9285714285714286
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.6,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.7807017543859649,
+      "match_threshold": 0.43,
+      "partial_threshold": 0.34,
+      "dev_fit_mae": 0.6403508771929824,
+      "dev_fit_smoothed_mae": 0.6421052631578948,
+      "dev_fit_concept_accuracy": 0.7577092511013216,
+      "folds": {
+        "Q1": {
+          "match": 0.39,
+          "partial": 0.33,
+          "mae": 0.75
+        },
+        "Q2": {
+          "match": 0.39,
+          "partial": 0.34,
+          "mae": 1.6428571428571428
+        },
+        "Q3": {
+          "match": 0.41,
+          "partial": 0.36,
+          "mae": 0.8571428571428571
+        },
+        "Q4": {
+          "match": 0.45,
+          "partial": 0.34,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.45,
+          "partial": 0.36,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.48,
+          "partial": 0.43,
+          "mae": 0.42857142857142855
+        },
+        "Q7": {
+          "match": 0.43,
+          "partial": 0.34,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.48,
+          "partial": 0.43,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.15,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7807017543859649,
+      "match_threshold": 0.36,
+      "partial_threshold": 0.27,
+      "dev_fit_mae": 0.631578947368421,
+      "dev_fit_smoothed_mae": 0.6459649122807017,
+      "dev_fit_concept_accuracy": 0.7048458149779736,
+      "folds": {
+        "Q1": {
+          "match": 0.27,
+          "partial": 0.22,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.27,
+          "partial": 0.21,
+          "mae": 1.5714285714285714
+        },
+        "Q3": {
+          "match": 0.32,
+          "partial": 0.27,
+          "mae": 1.0
+        },
+        "Q4": {
+          "match": 0.36,
+          "partial": 0.27,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.36,
+          "partial": 0.27,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.38,
+          "partial": 0.27,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.36,
+          "partial": 0.27,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.34,
+          "partial": 0.29,
+          "mae": 0.9285714285714286
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.0,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7807017543859649,
+      "match_threshold": 0.31,
+      "partial_threshold": 0.24,
+      "dev_fit_mae": 0.6578947368421053,
+      "dev_fit_smoothed_mae": 0.6590909090909091,
+      "dev_fit_concept_accuracy": 0.6828193832599119,
+      "folds": {
+        "Q1": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.375
+        },
+        "Q2": {
+          "match": 0.3,
+          "partial": 0.2,
+          "mae": 1.4285714285714286
+        },
+        "Q3": {
+          "match": 0.24,
+          "partial": 0.19,
+          "mae": 1.4285714285714286
+        },
+        "Q4": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.32,
+          "partial": 0.24,
+          "mae": 0.5714285714285714
+        },
+        "Q6": {
+          "match": 0.32,
+          "partial": 0.23,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.31,
+          "partial": 0.24,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.31,
+          "partial": 0.26,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.6,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7894736842105263,
+      "match_threshold": 0.4,
+      "partial_threshold": 0.32,
+      "dev_fit_mae": 0.6228070175438597,
+      "dev_fit_smoothed_mae": 0.6359649122807017,
+      "dev_fit_concept_accuracy": 0.748898678414097,
+      "folds": {
+        "Q1": {
+          "match": 0.38,
+          "partial": 0.33,
+          "mae": 0.8125
+        },
+        "Q2": {
+          "match": 0.4,
+          "partial": 0.31,
+          "mae": 1.5
+        },
+        "Q3": {
+          "match": 0.4,
+          "partial": 0.32,
+          "mae": 0.7857142857142857
+        },
+        "Q4": {
+          "match": 0.48,
+          "partial": 0.32,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.56,
+          "partial": 0.32,
+          "mae": 0.7142857142857143
+        },
+        "Q6": {
+          "match": 0.51,
+          "partial": 0.32,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.41,
+          "partial": 0.32,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.46,
+          "partial": 0.41,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.3,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.7982456140350878,
+      "match_threshold": 0.42,
+      "partial_threshold": 0.29,
+      "dev_fit_mae": 0.6052631578947368,
+      "dev_fit_smoothed_mae": 0.6319298245614036,
+      "dev_fit_concept_accuracy": 0.7224669603524229,
+      "folds": {
+        "Q1": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.75
+        },
+        "Q2": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 1.7142857142857142
+        },
+        "Q3": {
+          "match": 0.33,
+          "partial": 0.28,
+          "mae": 0.8571428571428571
+        },
+        "Q4": {
+          "match": 0.42,
+          "partial": 0.28,
+          "mae": 0.7857142857142857
+        },
+        "Q5": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.42857142857142855
+        },
+        "Q7": {
+          "match": 0.42,
+          "partial": 0.3,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.42,
+          "partial": 0.31,
+          "mae": 0.9285714285714286
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.45,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.8157894736842105,
+      "match_threshold": 0.46,
+      "partial_threshold": 0.35,
+      "dev_fit_mae": 0.6578947368421053,
+      "dev_fit_smoothed_mae": 0.6614035087719299,
+      "dev_fit_concept_accuracy": 0.7224669603524229,
+      "folds": {
+        "Q1": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 1.6428571428571428
+        },
+        "Q3": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 0.9285714285714286
+        },
+        "Q4": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.48,
+          "partial": 0.36,
+          "mae": 0.7857142857142857
+        },
+        "Q6": {
+          "match": 0.47,
+          "partial": 0.36,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.46,
+          "partial": 0.36,
+          "mae": 0.35714285714285715
+        },
+        "Q8": {
+          "match": 0.47,
+          "partial": 0.36,
+          "mae": 1.0
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.45,
+      "use_sentence_pairs": false,
+      "loqo_cv_mae": 0.8245614035087719,
+      "match_threshold": 0.39,
+      "partial_threshold": 0.32,
+      "dev_fit_mae": 0.6491228070175439,
+      "dev_fit_smoothed_mae": 0.6427432216905902,
+      "dev_fit_concept_accuracy": 0.7444933920704846,
+      "folds": {
+        "Q1": {
+          "match": 0.39,
+          "partial": 0.3,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.35,
+          "partial": 0.3,
+          "mae": 1.7142857142857142
+        },
+        "Q3": {
+          "match": 0.39,
+          "partial": 0.3,
+          "mae": 0.7857142857142857
+        },
+        "Q4": {
+          "match": 0.47,
+          "partial": 0.3,
+          "mae": 0.7857142857142857
+        },
+        "Q5": {
+          "match": 0.47,
+          "partial": 0.41,
+          "mae": 0.8571428571428571
+        },
+        "Q6": {
+          "match": 0.47,
+          "partial": 0.32,
+          "mae": 0.5
+        },
+        "Q7": {
+          "match": 0.39,
+          "partial": 0.32,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.47,
+          "partial": 0.4,
+          "mae": 1.0714285714285714
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.3,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.8508771929824561,
+      "match_threshold": 0.42,
+      "partial_threshold": 0.29,
+      "dev_fit_mae": 0.6228070175438597,
+      "dev_fit_smoothed_mae": 0.6417543859649123,
+      "dev_fit_concept_accuracy": 0.7092511013215859,
+      "folds": {
+        "Q1": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 0.75
+        },
+        "Q2": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 1.7142857142857142
+        },
+        "Q3": {
+          "match": 0.29,
+          "partial": 0.24,
+          "mae": 1.1428571428571428
+        },
+        "Q4": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.6428571428571429
+        },
+        "Q5": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.43,
+          "partial": 0.29,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.42,
+          "partial": 0.29,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.42,
+          "partial": 0.33,
+          "mae": 1.0714285714285714
+        }
+      }
+    },
+    {
+      "debias_weight": 0.0,
+      "keyword_weight": 0.15,
+      "use_sentence_pairs": true,
+      "loqo_cv_mae": 0.8508771929824561,
+      "match_threshold": 0.37,
+      "partial_threshold": 0.26,
+      "dev_fit_mae": 0.6666666666666666,
+      "dev_fit_smoothed_mae": 0.6649122807017543,
+      "dev_fit_concept_accuracy": 0.6740088105726872,
+      "folds": {
+        "Q1": {
+          "match": 0.26,
+          "partial": 0.21,
+          "mae": 0.625
+        },
+        "Q2": {
+          "match": 0.26,
+          "partial": 0.21,
+          "mae": 1.6428571428571428
+        },
+        "Q3": {
+          "match": 0.26,
+          "partial": 0.21,
+          "mae": 1.4285714285714286
+        },
+        "Q4": {
+          "match": 0.37,
+          "partial": 0.26,
+          "mae": 0.7142857142857143
+        },
+        "Q5": {
+          "match": 0.37,
+          "partial": 0.27,
+          "mae": 0.6428571428571429
+        },
+        "Q6": {
+          "match": 0.37,
+          "partial": 0.26,
+          "mae": 0.5714285714285714
+        },
+        "Q7": {
+          "match": 0.37,
+          "partial": 0.27,
+          "mae": 0.2857142857142857
+        },
+        "Q8": {
+          "match": 0.37,
+          "partial": 0.28,
+          "mae": 0.9285714285714286
+        }
+      }
+    }
+  ],
+  "seconds": 16.5
+}

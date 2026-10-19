@@ -1,0 +1,17 @@
+{
+  "_comment": "Replace the placeholder question. The rubric must be final BEFORE any answer is marked or scored; rubric marks must add up to max_marks. question_type is used for subgroup reporting (e.g. definition, explanation, comparison, process, application).",
+  "questions": [
+    {
+      "id": "S1",
+      "text": "<question text exactly as shown to students>",
+      "question_type": "<definition | explanation | comparison | process | application>",
+      "max_marks": 4,
+      "reference_answer": "<model answer written by the teacher>",
+      "rubric": [
+        {"id": "c1", "label": "<short concept name>", "description": "<what a fully correct answer states for this concept>", "marks": 2, "keywords": []},
+        {"id": "c2", "label": "<short concept name>", "description": "<...>", "marks": 1, "keywords": []},
+        {"id": "c3", "label": "<short concept name>", "description": "<...>", "marks": 1, "keywords": []}
+      ]
+    }
+  ]
+}

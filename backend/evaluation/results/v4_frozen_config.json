@@ -1,0 +1,52 @@
+{
+  "selected": {
+    "debias_weight": 0.9,
+    "keyword_weight": 0.15,
+    "use_sentence_pairs": false,
+    "correctness_checks": true,
+    "token_recall_weight": 0.0,
+    "keyword_list_predicate_cues": true,
+    "adaptive_debias": false,
+    "antonym_check": true,
+    "echo_guard": true
+  },
+  "match_threshold": 0.57,
+  "partial_threshold": 0.52,
+  "dev_in_sample_mae": 0.5705882352941176,
+  "dev_smoothed_mae": 0.5917647058823529,
+  "dev_concept_accuracy": 0.8017751479289941,
+  "loqo_fold_thresholds": {
+    "Q1": [
+      0.57,
+      0.52
+    ],
+    "Q2": [
+      0.56,
+      0.51
+    ],
+    "Q3": [
+      0.57,
+      0.52
+    ],
+    "Q4": [
+      0.57,
+      0.52
+    ],
+    "Q5": [
+      0.57,
+      0.52
+    ],
+    "Q6": [
+      0.59,
+      0.53
+    ],
+    "Q7": [
+      0.57,
+      0.52
+    ],
+    "Q8": [
+      0.59,
+      0.53
+    ]
+  }
+}

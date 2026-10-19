@@ -1,0 +1,31 @@
+# Secrets
+.env
+*.env.local
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+coverage/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Model caches (downloaded automatically)
+.cache/
+
+# Real-student study data (consent-based; keep it outside the repository - this is only a safety net)
+backend/evaluation/study_data/

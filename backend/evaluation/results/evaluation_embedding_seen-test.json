@@ -1,0 +1,1523 @@
+{
+  "split": "seen-test",
+  "note": "Q9-Q12. Held out for engine v2, but their per-answer errors were inspected afterwards, so they are NOT an independent test of engine v3.",
+  "backend": "embedding",
+  "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+  "engine_version": "3.0.0",
+  "config": {
+    "backend": "embedding",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "match_threshold": 0.57,
+    "partial_threshold": 0.52,
+    "off_topic_threshold": 0.2,
+    "relevance_threshold": 0.4,
+    "holistic_high_threshold": 0.75,
+    "keyword_weight": 0.15,
+    "debias_weight": 0.9,
+    "hybrid_weight": 0.0,
+    "token_recall_weight": 0.0,
+    "topic_token_weight": 0.3,
+    "correctness_checks": true,
+    "use_sentence_pairs": false,
+    "full_credit": 1.0,
+    "partial_credit": 0.5,
+    "round_to": 0.5,
+    "similar_concept_threshold": 0.8,
+    "duplicate_sentence_threshold": 0.92,
+    "ambiguity_margin": 0.04,
+    "short_answer_words": 8,
+    "fuzzy_ratio": 0.84,
+    "extra_abbreviations": {}
+  },
+  "config_fingerprint": "c5f68ec927d78a4d",
+  "n_answers": 28,
+  "n_questions": 4,
+  "max_marks_range": [
+    3,
+    4
+  ],
+  "engine": {
+    "scores": {
+      "n": 28,
+      "mae": 0.7857142857142857,
+      "rmse": 1.1019463300386794,
+      "normalised_mae": 0.20535714285714285,
+      "exact_agreement": 0.39285714285714285,
+      "within_0_5": 0.42857142857142855,
+      "within_1_0": 0.7857142857142857,
+      "mean_signed_error": -0.5,
+      "pearson": 0.7872953660756655,
+      "spearman": 0.7685911540753886
+    },
+    "concepts": {
+      "n": 105,
+      "accuracy": 0.7523809523809524,
+      "credit_vs_no_credit_accuracy": 0.7904761904761904,
+      "linear_weighted_kappa": 0.544018949861824,
+      "per_level": {
+        "matched": {
+          "precision": 0.92,
+          "recall": 0.5348837209302325,
+          "support": 43
+        },
+        "partial": {
+          "precision": 0.0,
+          "recall": NaN,
+          "support": 0
+        },
+        "missing": {
+          "precision": 0.7777777777777778,
+          "recall": 0.9032258064516129,
+          "support": 62
+        }
+      },
+      "confusion_matrix_gold_rows_pred_cols": {
+        "matched": {
+          "matched": 23,
+          "partial": 4,
+          "missing": 16
+        },
+        "partial": {
+          "matched": 0,
+          "partial": 0,
+          "missing": 0
+        },
+        "missing": {
+          "matched": 2,
+          "partial": 4,
+          "missing": 56
+        }
+      }
+    },
+    "per_question_mae": {
+      "Q9": 0.6428571428571429,
+      "Q10": 1.2857142857142858,
+      "Q11": 0.42857142857142855,
+      "Q12": 0.7857142857142857
+    },
+    "per_type_mae": {
+      "abbreviations": {
+        "mae": 1.75,
+        "n": 2
+      },
+      "empty": {
+        "mae": 0.0,
+        "n": 1
+      },
+      "incorrect": {
+        "mae": 0.25,
+        "n": 4
+      },
+      "irrelevant_long": {
+        "mae": 0.0,
+        "n": 4
+      },
+      "keyword_list": {
+        "mae": 0.5,
+        "n": 1
+      },
+      "paraphrase": {
+        "mae": 1.875,
+        "n": 4
+      },
+      "partial": {
+        "mae": 0.875,
+        "n": 4
+      },
+      "repeated": {
+        "mae": 1.0,
+        "n": 1
+      },
+      "single_concept": {
+        "mae": 0.75,
+        "n": 4
+      },
+      "spelling": {
+        "mae": 0.6666666666666666,
+        "n": 3
+      }
+    },
+    "review_flags": {
+      "flagged_n": 13,
+      "flagged_mae": 1.3076923076923077,
+      "not_flagged_n": 15,
+      "not_flagged_mae": 0.3333333333333333
+    },
+    "correctness_safeguards": {
+      "misattributed": {
+        "fired": 1,
+        "on_human_missing": 0
+      },
+      "negated": {
+        "fired": 1,
+        "on_human_missing": 1
+      }
+    },
+    "error_distribution": {
+      "over_credit_gt_0_5": 3,
+      "under_credit_lt_-0_5": 13,
+      "abs_error_ge_2": 3
+    }
+  },
+  "baselines": {
+    "keyword_overlap": {
+      "n": 28,
+      "mae": 0.6607142857142857,
+      "rmse": 1.0220777158038703,
+      "normalised_mae": 0.17708333333333331,
+      "exact_agreement": 0.39285714285714285,
+      "within_0_5": 0.6785714285714286,
+      "within_1_0": 0.8214285714285714,
+      "mean_signed_error": -0.26785714285714285,
+      "pearson": 0.7781815745162837,
+      "spearman": 0.7320116595425901
+    },
+    "holistic_cosine": {
+      "n": 28,
+      "mae": 1.0892857142857142,
+      "rmse": 1.423652244856768,
+      "normalised_mae": 0.28720238095238093,
+      "exact_agreement": 0.21428571428571427,
+      "within_0_5": 0.5,
+      "within_1_0": 0.5714285714285714,
+      "mean_signed_error": -0.375,
+      "pearson": 0.49278790628407526,
+      "spearman": 0.46174303081292
+    }
+  },
+  "largest_errors": [
+    {
+      "id": "Q10-a1",
+      "type": "paraphrase",
+      "gold": 4,
+      "pred": 1.0,
+      "flags": [
+        "borderline_concepts",
+        "divergent_signals"
+      ]
+    },
+    {
+      "id": "Q9-a1",
+      "type": "paraphrase",
+      "gold": 4,
+      "pred": 2.0,
+      "flags": [
+        "borderline_concepts"
+      ]
+    },
+    {
+      "id": "Q12-a4",
+      "type": "abbreviations",
+      "gold": 4,
+      "pred": 2.0,
+      "flags": [
+        "borderline_concepts"
+      ]
+    },
+    {
+      "id": "Q10-a2",
+      "type": "partial",
+      "gold": 1,
+      "pred": 2.5,
+      "flags": [
+        "borderline_concepts"
+      ]
+    },
+    {
+      "id": "Q10-a4",
+      "type": "abbreviations",
+      "gold": 4,
+      "pred": 2.5,
+      "flags": [
+        "borderline_concepts"
+      ]
+    },
+    {
+      "id": "Q12-a1",
+      "type": "paraphrase",
+      "gold": 4,
+      "pred": 2.5,
+      "flags": [
+        "borderline_concepts"
+      ]
+    },
+    {
+      "id": "Q9-a3",
+      "type": "single_concept",
+      "gold": 1,
+      "pred": 0.0,
+      "flags": [
+        "borderline_concepts"
+      ]
+    },
+    {
+      "id": "Q9-a4",
+      "type": "spelling",
+      "gold": 4,
+      "pred": 3.0,
+      "flags": [
+        "spelling_normalised"
+      ]
+    },
+    {
+      "id": "Q10-a3",
+      "type": "single_concept",
+      "gold": 1,
+      "pred": 0.0,
+      "flags": [
+        "very_short_answer",
+        "possible_swap"
+      ]
+    },
+    {
+      "id": "Q10-a5",
+      "type": "incorrect",
+      "gold": 0,
+      "pred": 1.0,
+      "flags": [
+        "possible_contradiction",
+        "borderline_concepts",
+        "divergent_signals",
+        "spelling_normalised"
+      ]
+    },
+    {
+      "id": "Q10-a7",
+      "type": "spelling",
+      "gold": 3,
+      "pred": 2.0,
+      "flags": [
+        "spelling_normalised"
+      ]
+    },
+    {
+      "id": "Q11-a1",
+      "type": "paraphrase",
+      "gold": 3,
+      "pred": 2.0,
+      "flags": [
+        "spelling_normalised"
+      ]
+    },
+    {
+      "id": "Q11-a2",
+      "type": "partial",
+      "gold": 1,
+      "pred": 2.0,
+      "flags": [
+        "very_short_answer",
+        "borderline_concepts"
+      ]
+    },
+    {
+      "id": "Q11-a3",
+      "type": "single_concept",
+      "gold": 1,
+      "pred": 0.0,
+      "flags": [
+        "very_short_answer"
+      ]
+    },
+    {
+      "id": "Q12-a2",
+      "type": "partial",
+      "gold": 1,
+      "pred": 0.0,
+      "flags": []
+    },
+    {
+      "id": "Q12-a6",
+      "type": "repeated",
+      "gold": 2,
+      "pred": 1.0,
+      "flags": [
+        "repeated_content",
+        "borderline_concepts"
+      ]
+    }
+  ],
+  "per_answer": [
+    {
+      "id": "Q9-a1",
+      "question": "Q9",
+      "type": "paraphrase",
+      "max": 4,
+      "gold": 4,
+      "pred": 2.0,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts"
+      ],
+      "holistic": 0.8713,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.5734,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4151,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7486,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.2765,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q9-a2",
+      "question": "Q9",
+      "type": "partial",
+      "max": 4,
+      "gold": 1,
+      "pred": 1.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [],
+      "holistic": 0.6928,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7379,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0868,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1731,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1295,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q9-a3",
+      "question": "Q9",
+      "type": "single_concept",
+      "max": 4,
+      "gold": 1,
+      "pred": 0.0,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts"
+      ],
+      "holistic": 0.6953,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.3594,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.503,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1351,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.4349,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q9-a4",
+      "question": "Q9",
+      "type": "spelling",
+      "max": 4,
+      "gold": 4,
+      "pred": 3.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "spelling_normalised"
+      ],
+      "holistic": 0.7673,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6925,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4531,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6741,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7255,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q9-a5",
+      "question": "Q9",
+      "type": "incorrect",
+      "max": 4,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [],
+      "holistic": 0.6602,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.3744,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.3241,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1098,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0167,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q9-a6",
+      "question": "Q9",
+      "type": "irrelevant_long",
+      "max": 4,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "off_topic"
+      ],
+      "holistic": 0.041,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.204,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.156,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2434,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0753,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q9-a7",
+      "question": "Q9",
+      "type": "keyword_list",
+      "max": 4,
+      "gold": 0,
+      "pred": 0.5,
+      "confidence": "low",
+      "needs_review": true,
+      "flags": [
+        "keyword_list",
+        "borderline_concepts"
+      ],
+      "holistic": 0.7133,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "partial",
+          "gold": "missing",
+          "score": 0.6047,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.3833,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.5187,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.5648,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q10-a1",
+      "question": "Q10",
+      "type": "paraphrase",
+      "max": 4,
+      "gold": 4,
+      "pred": 1.0,
+      "confidence": "low",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts",
+        "divergent_signals"
+      ],
+      "holistic": 0.8018,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4881,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4189,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4935,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6994,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q10-a2",
+      "question": "Q10",
+      "type": "partial",
+      "max": 4,
+      "gold": 1,
+      "pred": 2.5,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts"
+      ],
+      "holistic": 0.7688,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "missing",
+          "score": 0.6197,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6284,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "partial",
+          "gold": "missing",
+          "score": 0.5674,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1394,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q10-a3",
+      "question": "Q10",
+      "type": "single_concept",
+      "max": 4,
+      "gold": 1,
+      "pred": 0.0,
+      "confidence": "low",
+      "needs_review": true,
+      "flags": [
+        "very_short_answer",
+        "possible_swap"
+      ],
+      "holistic": 0.5422,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2141,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2886,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2166,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4336,
+          "issue": "misattributed"
+        }
+      ]
+    },
+    {
+      "id": "Q10-a4",
+      "question": "Q10",
+      "type": "abbreviations",
+      "max": 4,
+      "gold": 4,
+      "pred": 2.5,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts"
+      ],
+      "holistic": 0.6165,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6481,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "partial",
+          "gold": "matched",
+          "score": 0.5404,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4472,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.5985,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q10-a5",
+      "question": "Q10",
+      "type": "incorrect",
+      "max": 4,
+      "gold": 0,
+      "pred": 1.0,
+      "confidence": "low",
+      "needs_review": true,
+      "flags": [
+        "possible_contradiction",
+        "borderline_concepts",
+        "divergent_signals",
+        "spelling_normalised"
+      ],
+      "holistic": 0.8126,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.5337,
+          "issue": "negated"
+        },
+        {
+          "id": "c2",
+          "pred": "partial",
+          "gold": "missing",
+          "score": 0.5698,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "partial",
+          "gold": "missing",
+          "score": 0.5584,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.4109,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q10-a6",
+      "question": "Q10",
+      "type": "irrelevant_long",
+      "max": 4,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "off_topic"
+      ],
+      "holistic": 0.1807,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.022,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0733,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0938,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1785,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q10-a7",
+      "question": "Q10",
+      "type": "spelling",
+      "max": 4,
+      "gold": 3,
+      "pred": 2.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "spelling_normalised"
+      ],
+      "holistic": 0.8292,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7383,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4442,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.3482,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6809,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q11-a1",
+      "question": "Q11",
+      "type": "paraphrase",
+      "max": 3,
+      "gold": 3,
+      "pred": 2.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "spelling_normalised"
+      ],
+      "holistic": 0.8803,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.283,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7373,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6444,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q11-a2",
+      "question": "Q11",
+      "type": "partial",
+      "max": 3,
+      "gold": 1,
+      "pred": 2.0,
+      "confidence": "low",
+      "needs_review": true,
+      "flags": [
+        "very_short_answer",
+        "borderline_concepts"
+      ],
+      "holistic": 0.5681,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.9477,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "matched",
+          "gold": "missing",
+          "score": 0.6086,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2454,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q11-a3",
+      "question": "Q11",
+      "type": "single_concept",
+      "max": 3,
+      "gold": 1,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "very_short_answer"
+      ],
+      "holistic": 0.3132,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2211,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2276,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.2801,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q11-a4",
+      "question": "Q11",
+      "type": "incorrect",
+      "max": 3,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "spelling_normalised"
+      ],
+      "holistic": 0.6796,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1551,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.246,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0672,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q11-a5",
+      "question": "Q11",
+      "type": "spelling",
+      "max": 3,
+      "gold": 3,
+      "pred": 3.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "spelling_normalised"
+      ],
+      "holistic": 0.6314,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7402,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6334,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.8175,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q11-a6",
+      "question": "Q11",
+      "type": "irrelevant_long",
+      "max": 3,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "spelling_normalised"
+      ],
+      "holistic": 0.204,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0369,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0251,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1015,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q11-a7",
+      "question": "Q11",
+      "type": "empty",
+      "max": 3,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [
+        "empty_answer"
+      ],
+      "holistic": 0.0,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q12-a1",
+      "question": "Q12",
+      "type": "paraphrase",
+      "max": 4,
+      "gold": 4,
+      "pred": 2.5,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts"
+      ],
+      "holistic": 0.8456,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.3866,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6635,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7968,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "partial",
+          "gold": "matched",
+          "score": 0.5212,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q12-a2",
+      "question": "Q12",
+      "type": "partial",
+      "max": 4,
+      "gold": 1,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [],
+      "holistic": 0.6831,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4325,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.41,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1429,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.4505,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q12-a3",
+      "question": "Q12",
+      "type": "single_concept",
+      "max": 4,
+      "gold": 1,
+      "pred": 1.0,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts"
+      ],
+      "holistic": 0.365,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.4241,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6082,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.284,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.1886,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q12-a4",
+      "question": "Q12",
+      "type": "abbreviations",
+      "max": 4,
+      "gold": 4,
+      "pred": 2.0,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "borderline_concepts"
+      ],
+      "holistic": 0.7764,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.3415,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "partial",
+          "gold": "matched",
+          "score": 0.5646,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.7478,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "partial",
+          "gold": "matched",
+          "score": 0.5526,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q12-a5",
+      "question": "Q12",
+      "type": "incorrect",
+      "max": 4,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [],
+      "holistic": 0.6938,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0477,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.0,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2253,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.4316,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q12-a6",
+      "question": "Q12",
+      "type": "repeated",
+      "max": 4,
+      "gold": 2,
+      "pred": 1.0,
+      "confidence": "medium",
+      "needs_review": true,
+      "flags": [
+        "repeated_content",
+        "borderline_concepts"
+      ],
+      "holistic": 0.6909,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "matched",
+          "score": 0.4318,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "matched",
+          "gold": "matched",
+          "score": 0.6882,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2878,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.4942,
+          "issue": null
+        }
+      ]
+    },
+    {
+      "id": "Q12-a7",
+      "question": "Q12",
+      "type": "irrelevant_long",
+      "max": 4,
+      "gold": 0,
+      "pred": 0.0,
+      "confidence": "high",
+      "needs_review": false,
+      "flags": [],
+      "holistic": 0.424,
+      "concepts": [
+        {
+          "id": "c1",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2401,
+          "issue": null
+        },
+        {
+          "id": "c2",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.2675,
+          "issue": null
+        },
+        {
+          "id": "c3",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.3777,
+          "issue": null
+        },
+        {
+          "id": "c4",
+          "pred": "missing",
+          "gold": "missing",
+          "score": 0.3209,
+          "issue": null
+        }
+      ]
+    }
+  ],
+  "seconds": 15.4
+}

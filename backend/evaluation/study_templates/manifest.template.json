@@ -1,0 +1,19 @@
+{
+  "study_id": "<short id, e.g. NLP-CEC-2027-S1>",
+  "institution": "<institution and department>",
+  "ethics_approval_reference": "<approval / exemption reference from the institutional ethics committee or the head of department's written authorisation>",
+  "consent_procedure": "<how informed consent was obtained (information sheet version, date range, who collected it); how withdrawal works>",
+  "consent_obtained_for_all_answers": false,
+  "purpose": "<authorised educational purpose, e.g. measuring agreement between AnswerWise AI suggestions and teacher marks for course 221601906>",
+  "data_controller": "<role responsible for the data, e.g. course coordinator (not a personal email)>",
+  "retention_until": "<YYYY-MM-DD: date after which raw answers and marks are deleted>",
+  "deletion_procedure": "<what is deleted, how, and who confirms it; which aggregate results may be kept>",
+  "pseudonymisation": "<who holds the key linking answer ids to students (or 'no key kept'); where it is stored; it never enters this directory>",
+  "manual_pii_review": "<role of the person who read every answer for identifying details after check-pii, and the date>",
+  "markers": [
+    {"id": "A", "role": "teacher of the course", "blind_to_model_scores": true, "blind_to_other_marker": true},
+    {"id": "B", "role": "second qualified teacher", "blind_to_model_scores": true, "blind_to_other_marker": true}
+  ],
+  "adjudication": "<who resolves disagreements (third teacher or consensus meeting) and how reasons are recorded>",
+  "notes": ""
+}

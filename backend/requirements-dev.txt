@@ -1,0 +1,6 @@
+-r requirements.txt
+pytest==8.4.2
+httpx==0.28.1
+mongomock==4.3.0
+# Optional: browser screenshots / end-to-end smoke test in docs/ (uses the installed Microsoft Edge or Chrome)
+playwright==1.55.0

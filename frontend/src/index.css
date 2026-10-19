@@ -1,0 +1,342 @@
+@import "tailwindcss";
+
+/*
+ * Margin design system - every value below comes from STYLEGUIDE.md (repository root). Components use these tokens
+ * through Tailwind utilities (bg-ink-600, text-h2, rounded-md, shadow-e2 ...) or the CSS variables directly; no other
+ * colours, radii, shadows or type sizes should appear in the code.
+ *
+ * Spacing uses Tailwind's 4px scale restricted to the guide's steps:
+ *   space-1 = 1 (4px) · space-2 = 2 (8px) · space-3 = 3 (12px) · space-4 = 4 (16px) · space-5 = 6 (24px)
+ *   space-6 = 8 (32px) · space-7 = 12 (48px) · space-8 = 16 (64px) · space-9 = 24 (96px)
+ */
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", system-ui, sans-serif;
+
+  /* Ink - primary: actions, links, selection, focus and all data visualisation */
+  --color-ink-50: #eef2fb;
+  --color-ink-100: #dce4f6;
+  --color-ink-200: #b9c8ec;
+  --color-ink-300: #8fa6dd;
+  --color-ink-400: #6382cb;
+  --color-ink-500: #3f62b5;
+  --color-ink-600: #2d4e9c;
+  --color-ink-700: #233f80;
+  --color-ink-800: #1b3164;
+  --color-ink-900: #13234a;
+
+  /* Highlighter - found concepts and student encouragement only */
+  --color-hl-100: #fdf3d6;
+  --color-hl-300: #f8d172;
+  --color-hl-border: #f2c24e;
+  --color-hl-500: #e9a818;
+  --color-hl-700: #8a5b00;
+  --color-hl-text: #6b4700;
+
+  /* Slate - neutrals */
+  --color-slate-0: #ffffff;
+  --color-slate-25: #f8f9fb;
+  --color-slate-50: #f1f3f7;
+  --color-slate-100: #e5e8ef;
+  --color-slate-200: #d3d8e2;
+  --color-slate-300: #b4bccb;
+  --color-slate-400: #8a93a6;
+  --color-slate-500: #646e83;
+  --color-slate-600: #4a5368;
+  --color-slate-800: #2a3142;
+  --color-slate-900: #141824;
+
+  /* Status - state only, always with an icon and a label */
+  --color-success: #1f7a4d;
+  --color-success-bg: #e4f3eb;
+  --color-warning: #b4570a;
+  --color-warning-text: #8f4508;
+  --color-warning-bg: #fceedf;
+  --color-danger: #b42335;
+  --color-danger-hover: #951b2b;
+  --color-danger-pressed: #7a1623;
+  --color-danger-bg: #fbe6e8;
+  --color-danger-line: #e2a5ad;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Elevation (shadows tinted with ink-900, never black) */
+  --shadow-e1: 0 1px 2px rgba(19, 35, 74, 0.06), 0 1px 3px rgba(19, 35, 74, 0.08);
+  --shadow-e2: 0 2px 4px rgba(19, 35, 74, 0.06), 0 8px 20px rgba(19, 35, 74, 0.1);
+  --shadow-e3: 0 4px 8px rgba(19, 35, 74, 0.08), 0 24px 48px rgba(19, 35, 74, 0.16);
+
+  /* Type scale */
+  --text-display: 48px;
+  --text-display--line-height: 56px;
+  --text-display--letter-spacing: -0.02em;
+  --text-h1: 36px;
+  --text-h1--line-height: 44px;
+  --text-h1--letter-spacing: -0.01em;
+  --text-h2: 28px;
+  --text-h2--line-height: 36px;
+  --text-h3: 22px;
+  --text-h3--line-height: 30px;
+  --text-h4: 18px;
+  --text-h4--line-height: 26px;
+  --text-feedback: 18px;
+  --text-feedback--line-height: 30px;
+  --text-body-lg: 17px;
+  --text-body-lg--line-height: 28px;
+  --text-body: 15px;
+  --text-body--line-height: 24px;
+  --text-control-lg: 16px;
+  --text-control-lg--line-height: 24px;
+  --text-control-sm: 14px;
+  --text-control-sm--line-height: 20px;
+  --text-small: 13px;
+  --text-small--line-height: 20px;
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-micro: 11px;
+  --text-micro--line-height: 16px;
+  --text-score: 28px;
+  --text-score--line-height: 36px;
+  --text-score-hero: 44px;
+  --text-score-hero--line-height: 52px;
+}
+
+:root {
+  /* Semantic aliases (STYLEGUIDE §2.7) */
+  --bg-page: var(--color-slate-25);
+  --bg-surface: var(--color-slate-0);
+  --text-primary: var(--color-slate-900);
+  --text-secondary: var(--color-slate-600);
+  --text-muted: var(--color-slate-500);
+  --border: var(--color-slate-100);
+  --border-control: var(--color-slate-200);
+  --brand: var(--color-ink-600);
+  --brand-hover: var(--color-ink-700);
+  --brand-pressed: var(--color-ink-800);
+  --focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-ink-500);
+  --focus-input: 0 0 0 3px var(--color-ink-100);
+  --focus-error: 0 0 0 3px var(--color-danger-bg);
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+  p, li {
+    text-wrap: pretty;
+  }
+  a {
+    color: var(--color-ink-600);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    color: var(--color-ink-700);
+  }
+  button {
+    cursor: pointer;
+    font: inherit;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  :focus {
+    outline: none;
+  }
+  /* Buttons, links and other clickable items: white gap + ink-500 ring, keyboard focus only. Inputs set their own. */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+  ::selection {
+    background: var(--color-ink-100);
+  }
+  ::placeholder {
+    color: var(--color-slate-400);
+    opacity: 1;
+  }
+  /* Icons: 24px grid, 1.75px stroke, round caps and joins, currentColor (lucide-react). */
+  svg.lucide {
+    stroke-width: 1.75px;
+    flex-shrink: 0;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .eyebrow {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .reading {
+    max-width: 72ch;
+  }
+}
+
+/* Tooltip for icon-only buttons: slate-900, 13/18 white, radius 8, max 220px. */
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  width: max-content;
+  max-width: 220px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--color-slate-900);
+  color: #fff;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  pointer-events: none;
+  box-shadow: var(--shadow-e2);
+}
+
+/* Formatted descriptive text (questions, reference answers, student answers): the Margin Markdown subset. */
+.rt > * + * {
+  margin-top: 12px;
+}
+.rt p {
+  margin: 0;
+}
+.rt h3, .rt h4 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-slate-900);
+}
+.rt h3 {
+  font-size: 18px;
+  line-height: 26px;
+}
+.rt h4 {
+  font-size: 15px;
+  line-height: 24px;
+}
+.rt * + h3, .rt * + h4 {
+  margin-top: 20px;
+}
+.rt ul, .rt ol {
+  margin: 0;
+  padding-left: 24px;
+}
+.rt ul {
+  list-style: disc;
+}
+.rt ol {
+  list-style: decimal;
+}
+.rt li + li, .rt li > ul, .rt li > ol {
+  margin-top: 4px;
+}
+.rt li > p + p {
+  margin-top: 4px;
+}
+.rt strong {
+  font-weight: 600;
+}
+.rt em {
+  font-style: italic;
+}
+.rt .rt-table {
+  position: relative;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.rt table {
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 24px;
+  min-width: 50%;
+}
+.rt th, .rt td {
+  border: 1px solid var(--color-slate-200);
+  padding: 6px 12px;
+  text-align: left;
+  vertical-align: top;
+  min-width: 64px;
+}
+.rt th {
+  background: var(--color-slate-50);
+  font-weight: 600;
+}
+.rt th > p, .rt td > p {
+  margin: 0;
+}
+
+/* Editor surface (TipTap / ProseMirror) */
+.margin-editor .ProseMirror {
+  outline: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.margin-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  color: var(--color-slate-400);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.margin-editor .ProseMirror .selectedCell {
+  background: var(--color-ink-50);
+}
+.margin-editor .ProseMirror .tableWrapper {
+  overflow-x: auto;
+}
+.margin-editor .ProseMirror .column-resize-handle {
+  display: none;
+}
+
+@keyframes margin-spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: margin-spin 0.8s linear infinite;
+}
+@keyframes margin-pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.margin-pulse {
+  animation: margin-pulse 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

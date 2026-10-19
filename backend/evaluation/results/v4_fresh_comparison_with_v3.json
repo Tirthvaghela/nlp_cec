@@ -1,0 +1,103 @@
+{
+  "note": "post-freeze comparison on the v4 fresh set",
+  "systems": {
+    "v3 configuration": {
+      "n": 64,
+      "mae": 0.5625,
+      "rmse": 0.9395810236483068,
+      "normalised_mae": 0.15169270833333331,
+      "exact_agreement": 0.4375,
+      "within_0_5": 0.71875,
+      "within_1_0": 0.875,
+      "mean_signed_error": -0.09375,
+      "pearson": 0.8012873068254376,
+      "spearman": 0.773761997816281
+    },
+    "v4 engine (frozen)": {
+      "n": 64,
+      "mae": 0.546875,
+      "rmse": 0.9312290266094587,
+      "normalised_mae": 0.14778645833333331,
+      "exact_agreement": 0.453125,
+      "within_0_5": 0.734375,
+      "within_1_0": 0.875,
+      "mean_signed_error": -0.109375,
+      "pearson": 0.8060604325107211,
+      "spearman": 0.7826533558617006
+    },
+    "v4 TF-IDF fallback": {
+      "n": 64,
+      "mae": 0.859375,
+      "rmse": 1.2374368670764582,
+      "normalised_mae": 0.228515625,
+      "exact_agreement": 0.34375,
+      "within_0_5": 0.515625,
+      "within_1_0": 0.765625,
+      "mean_signed_error": 0.03125,
+      "pearson": 0.6208057663694859,
+      "spearman": 0.5528697944328449
+    }
+  },
+  "mae_by_type": {
+    "abbreviations": {
+      "n": 2,
+      "v3_mae": 0.5,
+      "v4_mae": 0.5
+    },
+    "dense_correct": {
+      "n": 8,
+      "v3_mae": 1.0,
+      "v4_mae": 1.0
+    },
+    "irrelevant_long": {
+      "n": 2,
+      "v3_mae": 0.0,
+      "v4_mae": 0.0
+    },
+    "keyword_list": {
+      "n": 2,
+      "v3_mae": 0.25,
+      "v4_mae": 0.25
+    },
+    "negated": {
+      "n": 5,
+      "v3_mae": 0.3,
+      "v4_mae": 0.3
+    },
+    "paraphrase": {
+      "n": 8,
+      "v3_mae": 1.125,
+      "v4_mae": 1.125
+    },
+    "partial": {
+      "n": 8,
+      "v3_mae": 0.5625,
+      "v4_mae": 0.5625
+    },
+    "short_correct_definition": {
+      "n": 8,
+      "v3_mae": 0.125,
+      "v4_mae": 0.125
+    },
+    "spelling": {
+      "n": 2,
+      "v3_mae": 1.0,
+      "v4_mae": 1.0
+    },
+    "swapped": {
+      "n": 3,
+      "v3_mae": 0.6666666666666666,
+      "v4_mae": 0.6666666666666666
+    },
+    "vague_short": {
+      "n": 8,
+      "v3_mae": 0.0625,
+      "v4_mae": 0.0
+    },
+    "wrong_with_keywords": {
+      "n": 8,
+      "v3_mae": 0.75,
+      "v4_mae": 0.6875
+    }
+  }
+}
